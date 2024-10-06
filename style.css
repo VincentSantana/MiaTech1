@@ -13,6 +13,9 @@ h4{
 #paragrafo5{
     background-color: yellowgreen;
 }
+.titolo{
+    height: 30px;
+}
 p{
     color: green;
     text-align: right;
