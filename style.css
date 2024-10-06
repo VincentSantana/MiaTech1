@@ -1,6 +1,15 @@
 h1{
     color: green;
 }
+h2{
+    color: blue;
+}
+h3{
+    color: rgb(245, 234, 220);
+}
+h4{
+    color: brown;
+}
 p{
     color: green;
     text-align: right;
