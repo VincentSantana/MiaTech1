@@ -55,3 +55,8 @@ p{
     font-size: 1.875em; /* 30px/16=1.875em */
     
 }
+li:last-child {
+    color: blue;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
