@@ -23,7 +23,6 @@ p{
     font-size:10px;
     font-family:Courier;
     border:2px;
-    border-color:blue;
     border-style:solid;
     width:200px; 
     height:100px;
@@ -36,7 +35,6 @@ p{
     font-size:10px;
     font-family:Courier;
     border:2px;
-    border-color:blue;
     border-style:solid;
     width:200px; 
     height:100px;
@@ -48,4 +46,12 @@ p{
    }
 * {
     text-align: center;
+    align-items: center;
+}
+.titolo1, .titolo2{
+    border-radius: 1% ;
+    background-color: chartreuse;
+    color: black;
+    font-size: 1.875em; /* 30px/16=1.875em */
+    
 }
