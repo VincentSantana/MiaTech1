@@ -24,5 +24,7 @@ a:hover{
     align-items: center;
     background-color: blue;
     font-size: 20px;
-    position: sticky;
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
 }
