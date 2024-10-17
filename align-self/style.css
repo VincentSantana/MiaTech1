@@ -1,0 +1,27 @@
+.flex-container{
+    display: flex;
+    background-color: aqua;
+    flex-wrap: wrap;
+    height: 400px;
+}
+
+.flex-container > div{
+    margin: 10px;
+    line-height: 75px;
+    font-size: 30px;
+    background-color: whitesmoke;
+    text-align: center;
+    width: 100px;
+}
+
+.item2{
+    align-self: center;
+}
+
+.item3{
+   align-self: baseline; 
+}
+
+body {
+    padding-top: 10px;
+}
