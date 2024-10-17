@@ -1,0 +1,17 @@
+.flex-container{
+    display: flex;
+    height: 300px;
+    background-color: aqua;
+}
+
+.flex-container > div{
+    margin: 10px;
+    line-height: 75px;
+    font-size: 30px;
+    height: 100px;
+    background-color: whitesmoke;
+}
+
+.item3{
+    flex-grow: 1;
+}
