@@ -1,0 +1,19 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: 80px 200px;
+    border: 2px solid black;
+    margin: 2px;
+    background-color: blueviolet;
+    padding: 1px;
+}
+
+.grid-container > div{
+    background-color: antiquewhite;
+    text-align: center;
+    border: 1px solid black;
+}
+
+h1 {
+    text-align: center;
+}
