@@ -1,0 +1,17 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    height: 100px;
+    gap: 30px;
+    font-size: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}

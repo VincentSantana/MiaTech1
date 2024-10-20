@@ -1,0 +1,19 @@
+.listacit {
+    display: inline-block;
+}
+.rio1, .rio2, .rio3 {
+    width: 200px;
+    height: 100px;
+    border: 1px solid blue;
+    background-color: aqua;
+    padding: 2px;
+}
+.rio1 {
+    display: inline;
+}
+.rio2 {
+    display: inline-block;
+}
+.rio3 {
+    display: block;
+}

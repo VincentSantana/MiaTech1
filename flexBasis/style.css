@@ -1,0 +1,25 @@
+.flex-container{
+    display: flex;
+    background-color: aqua;
+    flex-wrap: wrap;
+}
+
+.flex-container > div{
+    margin: 10px;
+    line-height: 75px;
+    font-size: 30px;
+    height: 100px;
+    background-color: whitesmoke;
+}
+
+.item2{
+    flex-basis: 200px;
+}
+
+.item3{
+    
+}
+
+body {
+    padding-top: 10px;
+}
