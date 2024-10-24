@@ -1,0 +1,10 @@
+.schermo{
+    background-color: red;
+    width: 400px;
+    height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .schermo{ background-color: blue;}
+}
