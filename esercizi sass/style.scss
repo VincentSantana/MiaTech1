@@ -1,0 +1,11 @@
+//variabile
+$color-primario: red;
+
+body {
+    background-color: $color-primario ;
+    color: black;
+}
+
+h1 {
+    color: $color-primario;
+}
