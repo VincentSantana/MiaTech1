@@ -1,32 +1,39 @@
-.wrapper{
+%btn {
+    background-color: #e7e7e7;
+    border-color: 1px solid #333333;
+}
+
+.wrapper {
     width: 100%;
-    .container__menu{
+
+    .container__menu {
         background-color: violet;
         text-align: center;
         font-size: 18px;
         padding: 20px;
     }
-    :hover{
+
+    :hover {
         color: #ff0000;
     }
 
-    a{
+    a {
         text-decoration: none;
         padding: 10px;
     }
 
-    .contact{
-        @extend .btn;
+
+    .contact {
+        @extend %btn;
         border: 1px solid black;
     }
 }
 
-body{
+body {
     margin: 0;
 }
 
-.btn{
-    background-color: #e7e7e7;
-    border-color: #333333;
+.btn {
+    background-color: yellowgreen;
+    border: 1px solid #333333;
 }
-

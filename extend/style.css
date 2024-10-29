@@ -1,3 +1,8 @@
+.wrapper .contact {
+  background-color: #e7e7e7;
+  border-color: 1px solid #333333;
+}
+
 .wrapper {
   width: 100%;
 }
@@ -22,7 +27,7 @@ body {
   margin: 0;
 }
 
-.btn, .wrapper .contact {
-  background-color: #e7e7e7;
-  border-color: #333333;
+.btn {
+  background-color: yellowgreen;
+  border: 1px solid #333333;
 }/*# sourceMappingURL=style.css.map */
