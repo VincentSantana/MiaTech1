@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1150px;
+  margin: auto;
+}
+.navbar__container ul {
+  display: flex;
+  gap: 20px;
+}
+.navbar__container ul li {
+  list-style: none;
+}
+.navbar__container ul a {
+  text-decoration: none;
+  color: #64748b;
+  font-size: 18px;
+}/*# sourceMappingURL=style.css.map */

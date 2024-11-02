@@ -21,7 +21,7 @@ body{
 }
 
 .section-1 {
-    width: 100% /3;
+    max-width: calc(100%/3);
     font-size: 14px;
     font-weight: bold;
     background-color: aquamarine;
