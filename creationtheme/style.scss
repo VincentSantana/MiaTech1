@@ -1,0 +1,45 @@
+@mixin navtheme($color){
+    background-color: $color;
+    
+    @if $color == #000000 {
+        color: white;
+        :hover{
+            color: yellow;
+        } @else if $color == white {
+         :root
+        }
+        
+    }
+}
+
+
+.wrapper{
+    width: 100%;
+
+    .container__navbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include navtheme(#000000)
+    }
+
+    .container__menu{
+        font-size: 18px;
+        padding: 20px;
+        margin: auto;
+    }
+    :hover{
+        color: #ff0000;
+    }
+
+    a{
+        text-decoration: none;
+        padding: 10px;
+        font-size: 18px;
+        color:#000000;
+    }
+}
+
+body{
+    margin: 0;
+}

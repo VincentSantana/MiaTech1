@@ -1,0 +1,27 @@
+.wrapper {
+  width: 100%;
+}
+.wrapper .container__navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+}
+.wrapper .container__menu {
+  font-size: 18px;
+  padding: 20px;
+  margin: auto;
+}
+.wrapper :hover {
+  color: #ff0000;
+}
+.wrapper a {
+  text-decoration: none;
+  padding: 10px;
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+}/*# sourceMappingURL=style.css.map */
