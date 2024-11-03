@@ -1,26 +1,22 @@
-@mixin navtheme($color){
-    background-color: $color;
-    
-    @if $color == #000000 {
-        color: white;
-        :hover{
-            color: yellow;
-        } @else if $color == white {
-         :root
-        }
-        
+@mixin themelight(){
+    background-color: beige;
+}
+
+@mixin themedark(){
+    background-color: #000000;
+    color: white;
+    a:hover{
+        color:yellow;
     }
 }
 
-
 .wrapper{
     width: 100%;
-
+    @include themelight;
     .container__navbar{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        @include navtheme(#000000)
     }
 
     .container__menu{
@@ -42,4 +38,29 @@
 
 body{
     margin: 0;
+}
+
+
+.wrapper-dark{
+    width: 100%;
+    @include themedark;
+
+    .container__nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .container__menu1{
+        font-size: 18px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    a{
+        text-decoration: none;
+        padding: 10px;
+        font-size: 18px;
+        @include themedark;
+    }
 }
