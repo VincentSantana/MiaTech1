@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  background-color: violet;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+}
+.wrapper .container__menu {
+  margin: auto;
+  padding: 20px;
+}
+.wrapper :hover {
+  color: true;
+}
+.wrapper :hover a {
+  color: red;
+}
+.wrapper a {
+  text-decoration: none;
+  padding: 10px;
+}
+
+body {
+  margin: 0;
+}/*# sourceMappingURL=style.css.map */
