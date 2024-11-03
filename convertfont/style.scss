@@ -1,0 +1,9 @@
+$myfontsize: 20px;
+
+@function em($target, $context:$myfontsize){
+    @return ($target/$context) * 1em;
+}
+
+p{
+    font-size: em(80px);
+}
