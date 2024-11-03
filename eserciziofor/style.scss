@@ -1,0 +1,38 @@
+$mycolor: #6495ED;
+
+
+
+.wrapper{
+    width: 100%;
+    .container__menu{
+        background-color: violet;
+        text-align: center;
+        font-size: 18px;
+        padding: 20px;
+    }
+    :hover{
+        color: #ff0000;
+    }
+
+    a{
+        text-decoration: none;
+        padding: 10px;
+    }
+}
+
+body{
+    margin: 0;
+}
+
+
+.section{
+    font-weight: bold;
+    font-size: 14px;
+    
+}
+
+@for $i from 1 through 2{
+    .section:nth-child(2n + #{$i}){
+        background-color: lighten($mycolor, $i * 10%);
+    }
+}
