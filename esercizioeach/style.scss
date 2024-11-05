@@ -1,7 +1,7 @@
-$mycolors: #ff00ff, #00ff00, #8FBC8F, #D3D3D3;
+$mycolors: pink, green, blue, yellow;
 
 @each $color in $mycolors {
-    a-#{$color}{
+    .color-#{$color}{
         color: $color;
     }
 }
