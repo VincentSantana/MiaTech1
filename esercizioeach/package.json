@@ -1,0 +1,22 @@
+{
+  "name": "mystart",
+  "version": "0.1.0",
+  "description": "inizio javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincentSantana/MiaTech1.git"
+  },
+  "author": "Vincent Santana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VincentSantana/MiaTech1/issues"
+  },
+  "homepage": "https://github.com/VincentSantana/MiaTech1#readme",
+  "dependencies": {
+    "xml-js": "^1.6.11"
+  }
+}
