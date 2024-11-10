@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>somma lista array</title>
+</head>
+<body>
+    <h1>conteggio del mio array:</h1>
+    <script type="text/javascript">
+
+        const listanumeri = [
+            "uno",
+            "due",
+            "tre",
+            "quatro",
+            "cinque",
+            "sei"
+        ];
+
+        for (let posizione in listanumeri){
+            let valore = listanumeri[posizione]
+            document.write("<p>Posizione:" + posizione + "=>"+ valore + "</p>" )
+        }
+
+        console.log(listanumeri.length)
+        
+    </script>
+</body>
+</html>
