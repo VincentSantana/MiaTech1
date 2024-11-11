@@ -15,11 +15,16 @@
 
         ];
 
-        const iscritti = prompt();
-        const conta = parole.push(iscritti);
+        for(let i = 0; i < 5; i++){
+            parole.push(prompt("Inserisci una parola"))
+        }
 
 
-        console.log(iscritti)
+        for(let i = 0; i < parole.length; i++){
+            if (parole[i].length % 2 != 0){
+                console.log(parole[i])
+            }
+        }
 
 
     </script>
