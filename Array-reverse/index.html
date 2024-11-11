@@ -13,19 +13,19 @@
             "uno",
             "due",
             "tre",
-            "quatro",
+            "quattro",
             "cinque",
             "sei"
         ];
 
-        for (let posizione in listanumeri){
-            let valore = listanumeri[posizione]
-            document.write("<p>Posizione:" + posizione + "=>"+ valore + "</p>" )
+        let inverso = "";
+
+        for (let i = listanumeri.length - 1; i >= 0; i--){
+            inverso += listanumeri[i]
+        
         }
 
-       listanumeri.reverse();
-
-        console.log(listanumeri);
+        console.log(inverso);
         
     </script>
 </body>
