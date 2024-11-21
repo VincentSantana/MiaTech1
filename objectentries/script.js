@@ -6,3 +6,7 @@ let student = {
 }
 
 console.log(Object.entries(student))
+
+for (let key in student) {
+    console.log(`${key}: ${student[key]}`);
+    }
