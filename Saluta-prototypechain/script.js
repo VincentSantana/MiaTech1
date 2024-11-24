@@ -21,28 +21,17 @@ class Elettrica extends Automobile {
 
     constructor(marca , modelo, anno, autonomia){
         super(marca, modelo, anno)
-
         this.autonomia = autonomia
     }
 
-          ricarica(km) {
-            if (km > 0) {
-                this.autonomia += km;
-            } else {
-                console.log("Il valore dei chilometri deve essere positivo.");
-            }
-        }
-
-        aumentabatteria() {
-            return this.autonomia
-        }
-
 }
+Automobile.prototype.saluta = function() {
+    return `Ciao! Sono una ${this.marca} ${this.modelo} ${this.anno} ${this.autonomia}.`;
+};
 
 let auto1 = new Automobile("Opel", "E-Mokka", 2021);
-
 let auto2 = new Elettrica("Opel", "E-Mokka", 2021, 600)
 
-auto2.ricarica(50);
 
-console.log(auto2.aumentabatteria());
+console.log(auto2.saluta());
+console.log(auto1.saluta())
