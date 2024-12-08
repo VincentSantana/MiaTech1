@@ -1,0 +1,36 @@
+#box_container {
+    display: flex;
+    max-width: 1020px;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+    margin: auto;
+}
+
+label.completed span {
+    text-decoration: line-through;
+
+}
+
+label.todo_box {
+    border: 1px solid yellow;
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    cursor: pointer;
+}
+
+body {
+    background-color: gray;
+}
+
+.title {
+    display: flex;
+    margin-left: 40px;
+}
+
+input.check_box:checked + title {
+    text-decoration: line-through;
+}

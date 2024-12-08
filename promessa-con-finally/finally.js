@@ -20,4 +20,6 @@ promessaConMessaggio().then(
     }).catch(function (error) { //se la promessa viene rifiutata questa funzione viene eseguita
 
         console.error(error)
-    });
+    }).finally(function () {
+        console.log("operazioni completate")
+    })
