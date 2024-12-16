@@ -1,4 +1,0 @@
-let students = [
-    "name",
-    "grade"
-]
