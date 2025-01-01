@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sfondo e bordo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primo: '#7FFF00',
+                        secondo: '#B8860B',
+                        terzo: '#FAFAD2',
+                        quarto: '#9932CC',
+                    },
+                },
+            },
+        }
+    </script>
+
+</head>
+<body>
+    <div class="bg-primo p-4 border-2 border-secondo">
+        <p>
+            Applica classi di colori personalizzati a sfondi e bordi di diversi elementi (div, card) in una pagina HTML.
+        </p>
+    </div>
+<div class="pt-10"></div>
+
+<div class="flex justify-center">
+    <div class="flex inline-block justify-center bg-terzo p-4 border-2 border-quarto rounded gap-5">
+        <div>
+            <img class="w-20 h-20 rounded" src="https://media.licdn.com/dms/image/v2/C4D03AQHndSyrLVoL7Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1556275063302?e=2147483647&v=beta&t=R6emfX0iQFgEdQNALPOmbrMjXeMlvHcaRYi4We60R6E" alt="Vincent">
+        </div>
+        <div>
+            <h1 class="font-bold text-secondo underline">Vincent Santana</h1>
+            <p class="font-">studente di web developer</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colori di testo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primo: '#7FFF00',
+                        secondo: '#B8860B',
+                        terzo: '#A9A9A9',
+                        quarto: '#9932CC',
+                    },
+                },
+            },
+        }
+    </script>
+
+</head>
+<body>
+
+    <h1 class="text-terzo font-bold text-xl underline m-4">colori di testo:</h1>
+    <br>
+    <p class="text-primo font-bold m-4">
+        Crea un layout che utilizzi colori di testo personalizzati per vari elementi (titoli, paragrafi, link) utilizzando la palette definita.
+    </p>
+    <br>
+    <a class="text-secondo margin-4 m-4 hover:text-quarto" href="https://www.youtube.com/watch?v=3xlUAMXui2c&list=PLPl81lqbj-4JdoHDiERR2ptkw9zRggXAL">Corso di Tailwind in Spagnolo</a>
+
+</body>
+</html>

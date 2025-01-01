@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palette custom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primo: '#7FFF00',
+                        secondo: '#B8860B',
+                        terzo: '#A9A9A9',
+                        quarto: '#9932CC',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Definisci una nuova palette di colori personalizzata nel file di configurazione e utilizzala per stilizzare una serie di pulsanti in una pagina HTML.
+    </p>
+    <div class="pt-9"></div>
+    <button class="bg-primo text-white font-bold py-2 p-4 rounded">primo pulsante</button>
+    <button class="bg-secondo text-white font-bold py-2 px-4 rounded">secondo Pulsante</button>
+    <button class="bg-terzo text-white font-bold py-2 px-4 rounded">terzo Pulsante</button>
+    <button class="bg-quarto text-white font-bold py-2 px-4 rounded">quarto Pulsante</button>
+</body>
+</html>

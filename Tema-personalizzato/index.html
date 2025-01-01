@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema personalizzato</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script> 
+    tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#6495ED',
+              secondary: '#4B0082',
+            },
+            fontFamily: {
+                'sans': ['Helvetica', 'Arial', 'sans-serif'],
+            },
+            spacing: {
+              '1px': '10px',
+              '2px': '40px',
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body>
+    
+    <p class="text-primary font-sans text-20px bg-secondary p-2px">
+        Configura un tema personalizzato nel file di configurazione e applicalo a una pagina HTML per dimostrare la differenza rispetto ai valori predefiniti.
+    </p>
+    
+</body>
+</html>

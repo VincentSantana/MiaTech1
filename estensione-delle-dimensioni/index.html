@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estensione delle dimensioni</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    spacing: {
+                        '1p': '12rem',
+                        '2p': '16rem',
+                    },
+                    borderRadius: {
+                        '2xl': '1rem',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <p class="p-1p m-2p rounded-2xl bg-blue-500">
+        Aggiungi nuove dimensioni di spacing (margin e padding) al file di configurazione e utilizza queste nuove dimensioni in una pagina HTML.
+    </p>
+
+</body>
+</html>
