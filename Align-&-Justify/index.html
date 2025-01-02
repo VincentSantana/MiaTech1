@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Align & Justify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @layer components {
+            .btn {
+                background-color: #696969;
+                color: white;
+                padding: 5px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px;
+                width: 10%;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p class="text-center bg-blue-500 p-4 font-bold text-xl">
+        Utilizza le classi di allineamento (justify-center, items-center) per creare un layout centrato sia orizzontalmente che verticalmente:
+    </p>
+    <br>
+    <br>
+    <div class="flex flex-row container mx-auto border-2 border-blue-500 justify-center rounded-lg">
+        <div class="flex btn items-center">tab 1</div>
+        <div class="flex btn items-center">tab 2</div>
+        <div class="flex btn items-center">tab 3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerarchia stili</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primo: '#3498db',
+                        secondo: '#b800e6',
+                        quinto: '#2ecc71',
+                        quarto: '#e74c3c',
+                        terzo: '#f7dc6f',
+                    },
+                    spacing: {
+                        sm: '8px',
+                        md: '16px',
+                        lg: '24px',
+                        xl: '32px',
+                    },
+                    fontSize: {
+                        sm: '12px',
+                        md: '14px',
+                        lg: '16px',
+                        xl: '18px',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <p>
+        Configura e dimostra la gerarchia di stili creando diversi elementi che utilizzano vari livelli di stili
+        personalizzati.
+    </p>
+    <br><br><br>
+
+    <div class="container mx-auto p-4 border-2 border-secondo rounded">
+        <h1 class="text-3xl font-bold text-primo">Titolo principale</h1>
+        <p class="text-lg text-secondo">Paragrafo secondario</p>
+        <button class="bg-quinto text-white font-bold py-2 px-4 rounded-lg hover:bg-quinto-dark">Pulsante di successo</button>
+        <button class="bg-quarto text-white font-bold py-2 px-4 rounded-lg hover:bg-quarto-dark">Pulsante di pericolo</button>
+        <div class="flex justify-center mt-4">
+          <button class="bg-terzo text-white font-bold py-2 px-4 rounded-lg hover:bg-terzo-dark mr-2">Pulsante di avviso</button>
+          <button class="bg-primo text-white font-bold py-2 px-4 rounded-lg hover:bg-primo-dark">Pulsante principale</button>
+        </div>
+      </div>
+</body>
+
+</html>

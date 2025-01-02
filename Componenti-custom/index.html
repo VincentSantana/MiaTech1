@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>componenti custom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                darkMode: 'class',
+                extend: {
+                    colors: {
+                        
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn {
+                background-color: #696969;
+                color: white;
+                padding: 5px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Crea un componente personalizzato utilizzando la funzionalità di layering di Tailwind e utilizzalo in una pagina HTML.
+    </p>
+
+    <button class="btn hover:bg-gray-600">inizia</button>
+    
+</body>
+</html>

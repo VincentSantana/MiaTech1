@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>stili focus & active</title>
+</head>
+<body>
+    <p class="font-bold text-xl">
+        Implementa un modulo di input con campi di testo che cambiano stile quando vengono messi a fuoco (focus:) o attivati (active:).
+    </p>
+    <form action="">
+        <label for="nome">Nome:</label>
+        <input class="focus:bg-cyan-950 focus:text-white"  type="text" id="nome"></input>
+        <br>
+        <label  for="cognome">Cognome:</label>
+        <input class="active:bg-cyan-950" type="text"></input>
+    </form>
+</body>
+</html>

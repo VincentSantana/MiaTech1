@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stili riutilizzabili</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style type="text/tailwindcss">
+       @layer components {
+            .btn {
+                background-color: #696969;
+                color: white;
+                padding: 5px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px;
+            }
+            .card {
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 10px;
+                margin: 10px;
+                background-color: #6699ff ;
+            }
+        }
+    </style>
+</head>
+<body>
+   <p class=" card inline-block fonts-poppins ">
+    Definisci un set di stili riutilizzabili per card e pulsanti, utilizzando classi personalizzate nel file di configurazione.
+   </p> 
+
+   <button id="pulsante" class=" btn font-bold">Pulsante</button>
+
+   <script src="./script.js"></script>
+</body>
+</html>
