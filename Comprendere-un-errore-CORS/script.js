@@ -1,6 +1,6 @@
 async function fetchData() {
     try {
-        const response = await fetch('https://api.example.com/data');
+        const response = await fetch('https://www.facebook.com/');
         const data = await response.json();
         console.log(data);// stampa i dati restituiti dall'API
     } catch (error) {
