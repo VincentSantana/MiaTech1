@@ -8,11 +8,6 @@ class Automobile {
         this.modelo = modelo
         this.anno = anno
      }
-
-     descrizione() {
-        return `Questa è una ${this.marca} ${this.modelo} del ${this.anno} carico massimo di ${this.caricoMassimo} kg.`;
-          }
-
 }
 
 //nuova classe estesa ad Automobile
@@ -23,6 +18,10 @@ class Camion extends Automobile {
         this.caricoMassimo = caricoMassimo
         this.caricoAttuale = 0; 
     }
+
+    descrizione() {
+        return `Camion ${this.marca} ${this.modelo} dell'anno ${this.anno} con carico massimo di ${this.caricoMassimo} kg e carico attuale di ${this.caricoAttuale} kg`;
+      }
 
     carica(kg) {
         if (this.caricoAttuale + kg > this.caricoMassimo) {
@@ -35,6 +34,7 @@ class Camion extends Automobile {
 
 let camion1 = new Camion("Toyota", "Runner", 2023, 1000)
 
+console.log(camion1.descrizione());
 console.log(camion1.carica(100));
 console.log(camion1.caricoMassimo);
 
