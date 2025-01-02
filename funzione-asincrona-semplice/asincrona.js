@@ -1,14 +1,20 @@
+//creata una funzione asincrona
 async function promessaPrima() {
-    setTimeout(() => {
-        console.log('Prima funzione async Semplice risolta dopo 2 secondi');
-    }, 2000);
+    //creazione della promessa
+    const promessa = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Prima funzione async Semplice risolta dopo 2 secondi");
+        }, 2000);//risolve la promessa dopo 2 secondi
+    });
+
+    //gestione della promessa con await e try catch
+    try {
+        const risoltato = await promessa;
+        console.log(risoltato);
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-
-async function risultatofunzione() {
-    let risultato = await promessaPrima();//come se fosse un callback resolver della promessa
-    console.log(risultato);
-}
-
-// Chiamata alla funzione
-risultatofunzione();
+ // Chiamata alla funzione per risolverka
+ promessaPrima();
