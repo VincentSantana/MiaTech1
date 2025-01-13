@@ -1,4 +1,4 @@
-//fare dei box uno sooto l'altro, lista to do una check box sulla ninistra e il titolo a destra se la to do e segnata come completed la checkbox e check data e il testo del titolo e tagliato//
+//fare dei box uno sooto l'altro, lista to do una check box sulla sinistra e il titolo a destra se la to do e segnata come completed la checkbox e check data e il testo del titolo e tagliato//
 
 const API_URL = "https://jsonplaceholder.typicode.com/todos";
 
