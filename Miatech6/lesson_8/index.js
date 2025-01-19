@@ -127,3 +127,81 @@ Consider implementing the following enhancements:
 - Dynamic selection of items per page.
 
 */
+
+
+___________________________________________________________________________________________________________________________________________
+// guardato con chatgpt:
+
+/*
+const searchInput = document.getElementById("task_text");
+const list = document.getElementById("task_container");
+const pagination = document.getElementById("pagination-container");
+const btnNext = document.getElementById("next");
+const btnPrevious = document.getElementById("previous");
+
+// Configuración de la paginación
+const itemsPerPage = 5; // Elementos por página
+let currentPage = 1; // Página actual
+let totalPages = 1; // Total de páginas
+
+async function richiestaDati() {
+    try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+        const dati = await res.json();
+
+        const updateList = (filteredData) => {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            list.innerHTML = "";
+            filteredData.slice(startIndex, endIndex).forEach((item) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<p>${item.title}</p> <span>${item.completed}</span>`;
+                list.appendChild(li);
+            });
+        };
+
+        const updatePagination = (filteredData) => {
+            totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            btnPrevious.disabled = currentPage === 1;
+            btnNext.disabled = currentPage === totalPages;
+        };
+
+        searchInput.addEventListener("input", () => {
+            const textValue = searchInput.value.trim();
+            const filteredData = dati.filter((item) =>
+                item.title.toLowerCase().includes(textValue.toLowerCase())
+            );
+
+            currentPage = 1; // Reiniciar a la primera página al filtrar
+            if (textValue === "") {
+                list.innerHTML = "";
+                pagination.innerHTML = "";
+            } else {
+                updateList(filteredData);
+                updatePagination(filteredData);
+            }
+
+            btnNext.onclick = () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updateList(filteredData);
+                    updatePagination(filteredData);
+                }
+            };
+
+            btnPrevious.onclick = () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateList(filteredData);
+                    updatePagination(filteredData);
+                }
+            };
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+richiestaDati();
+
+*/ 
