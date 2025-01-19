@@ -1,6 +1,8 @@
 const searchInput = document.getElementById("task_text");
 const list = document.getElementById("task_container");
 const pagination = document.getElementById("pagination-container");
+const btnNext = document.getElementById("next");
+const btnPrevious = document.getElementById("previous");
 // Configuración de la paginación
 const itemsPerPage = 5; // Elementos por página
 
@@ -36,7 +38,7 @@ async function richiestaDati() {
                     const button = document.createElement("button");
                     button.classList.add("page-button");
                     button.innerText = i;
-                    
+                    console.log(i);
                     button.addEventListener("click", () => {
                         currentPage = i;
                         const startIndex = (currentPage - 1) * itemsPerPage;
@@ -46,11 +48,14 @@ async function richiestaDati() {
                             const li = document.createElement("li");
                             li.innerHTML = `<p> ${item.title}</p> <span>${item.completed}</span>`;
                             list.appendChild(li);
+                            
                         });
                     });
                     pagination.appendChild(button);
+
                 }
             } 
+            
         });
 
 
