@@ -8,6 +8,7 @@ const Title = () => {
 }
 const App = () => {
   const [counter, setCounter] = useState(0);  //Una tipologia di hooks: State
+  
 
   const handleClickBtn = () => {  //funzione che aumenta il count
     setCounter((_counter) => {
