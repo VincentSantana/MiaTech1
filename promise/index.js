@@ -1,3 +1,13 @@
+async function myPromise() {//uguale ad usare il then sotto
+    try {
+    const result =  await myPromise();
+    console.log(result)
+} catch (error) {
+    console.error(error)
+}
+};
+
+
 function myPromise() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -11,11 +21,11 @@ function myPromise() {
         }, 2000)
 
     })
-}
+};
 
 const number = 10;
 
-myPromise().then(
+/*myPromise().then(
     function (data) {
 
         console.log(data)
@@ -26,4 +36,4 @@ myPromise().then(
 }
 ).finally(function () {
     console.log("operazioni completate")
-})
+})*/

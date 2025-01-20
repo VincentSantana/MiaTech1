@@ -18,10 +18,10 @@ async function richiestaDati() {
             //filter me esta ayudando a filtrar los datos
             const filteredData = dati.filter((item) => item.title.toLowerCase().includes(textValue.toLowerCase()));
            
-            list.innerHTML = ""; // Limpia el contenedor
+            list.innerHTML = ""; // Limpia el contenedor lista
 
             if (textValue === "") {
-                list.innerHTML = ""; 
+                list.innerHTML = ""; // Limpia el buscador
             } else {
                 //cuenta las paginas que tengo
                 const totalPages = Math.ceil(filteredData.length / itemsPerPage);
@@ -38,7 +38,7 @@ async function richiestaDati() {
                     const button = document.createElement("button");
                     button.classList.add("page-button");
                     button.innerText = i;
-                    console.log(i);
+                   
                     button.addEventListener("click", () => {
                         currentPage = i;
                         const startIndex = (currentPage - 1) * itemsPerPage;
