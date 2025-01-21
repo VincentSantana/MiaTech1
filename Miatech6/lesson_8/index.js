@@ -6,11 +6,17 @@ const btnPrevious = document.getElementById("previous");
 // Configuración de la paginación
 const itemsPerPage = 5; // Elementos por página
 
+// state creation
+const state = {
+    users: []
+};
 
 async function richiestaDati() {
     try {
         const res = await fetch('https://jsonplaceholder.typicode.com/todos');
         const dati = await res.json();
+
+        state.users = dati;
 
         searchInput.addEventListener("input", () => {
             //trim sirve para quitarle los espacios
@@ -66,7 +72,16 @@ async function richiestaDati() {
 
 richiestaDati();
 
+const render = ()=> {
+    list.innerHTML = ""
 
+    //rendering
+    state.users.forEach((user) => {
+        list.innerHTML +- user.name + "<br />"
+    });
+};
+
+render()
 
 
 
@@ -85,17 +100,17 @@ This project is a user management application that fetches user data from a mock
    - Fetch user data from a mock API (`https://jsonplaceholder.typicode.com/users`).
    - Initialize the application state with the fetched data.
 
-2. **Pagination**
+2. **Pagination** hacerlo seguro con lo state!!!!!
    - Display a limited number of users per page.
    - Include "Next" and "Previous" buttons for navigation.
    - Dynamically update the displayed users based on the current page.
 
-3. **Filtering and Sorting**
+3. **Filtering and Sorting** hacerlo seguro con lo state!!!
    - Filter the list by name using a search input.
    - Sort users by name or email via a dropdown.
    - Apply filtering and sorting dynamically without re-fetching data.
 
-4. **User Deletion**
+4. **User Deletion** hacerlo seguro con lo state!!!!!
    - Enable users to delete an entry from the list.
    - Reflect the deletion in the UI and update the state.
 
