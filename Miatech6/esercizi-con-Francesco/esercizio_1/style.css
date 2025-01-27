@@ -1,5 +1,14 @@
 #box_container{
-    display: flex;
+    border: none;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
 }
 
 div{
@@ -16,6 +25,64 @@ div{
 
 button{
     padding: 5px 10px;
-    border: 1px solid black;
+    border: 1px solid #708090;
     border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    font-size: 12px;
+    box-shadow: 3px 3px 3px 3px #708090;
+}
+
+.container-accessori{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+    width: 200px;
+    background-color: #DCDCDC;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    font-size: 12px;
+    box-shadow: 3px 3px 3px 3px #708090;
+}
+
+.container-carrello{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 400px;
+    background-color: #DCDCDC;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    font-size: 12px;
+}
+
+#carrello{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 400px;
+    background-color: #DCDCDC;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    font-size: 12px;
+    margin-left: 150px;
 }

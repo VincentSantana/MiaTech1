@@ -53,6 +53,8 @@ accessori.forEach((element) => {
     <button>Aggiungi al carrello</button>
     `;
 
+    div.classList.add("container-accessori");
+
     const btn = div.querySelector("button");
     btn.addEventListener("click", () => {
         aggiungiAlCarrello(element.id);
@@ -97,7 +99,7 @@ const render = () => {// gestina los datos(me crea el modelo de los datos)
         <span class="quantity">${element.quantity}</span>
         <button class="add">+</button>
         `;
-
+         div.classList.add("container-carrello");
         const btnRemove = div.querySelector(".remove");
         btnRemove.addEventListener("click", () => {
             rimuoviAlCarrello(element);
