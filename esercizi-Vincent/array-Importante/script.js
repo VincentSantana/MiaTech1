@@ -63,3 +63,25 @@ let arrayMultidimensional = [
 ];
 console.log(arrayMultidimensional);
 console.log(arrayMultidimensional[0][1]);// seleccionar un elemento de un array multidimensional
+
+//slice crea una copia del array
+let arraySlice = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(arraySlice);
+console.log(arraySlice.slice(2, 5));
+
+
+//sort ordena los elementos de menor a mayor
+let arraySort = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const arraySort2 = arraySort.sort((a, b) => {
+    return a - b});
+console.log(arraySort2);
+console.log(arraySort.sort());
+
+
+
+//map solo modifica los elementos
+let arrayMap = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(arrayMap);
+console.log(arrayMap.map((elemento) => {
+    return elemento * 2;
+}));
