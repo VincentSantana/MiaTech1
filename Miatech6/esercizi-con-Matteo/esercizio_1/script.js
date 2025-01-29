@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const carrelloList = document.getElementById("carrello");
+const indietro = document.getElementById("indietro");
 
 const state = {
     carrello: [],
@@ -57,11 +58,17 @@ accessori.forEach((element) => {
 
     const btn = div.querySelector("button");
     btn.addEventListener("click", () => {
-        aggiungiAlCarrello(element.id);
+        aggiungiAlCarrello(element.id)
+        nascondiShop()
+
     });
 
     container.appendChild(div);
 });
+
+indietro.addEventListener("click", () =>{
+    indietroBtn()
+})
 
 function aggiungiAlCarrello(id) {//aqui se agregan los datos al state
     const accessoio = accessori.find((element) => element.id === id);
@@ -86,6 +93,16 @@ function incrementa(id) {
         return element;
     });
     render();
+}
+
+function nascondiShop() {
+    container.style.display = "none";//style inline
+    carrelloList.style.display = "flex";
+}
+
+function indietroBtn(){
+    container.style.display = "grid";//style inline
+    carrelloList.style.display = "none";
 }
 
 const render = () => {// gestina los datos(me crea el modelo de los datos)
@@ -114,3 +131,9 @@ const render = () => {// gestina los datos(me crea el modelo de los datos)
 
 
 };
+
+
+
+
+//far in modo che quando aggiorno la pagina il carrelo non sparisca
+
