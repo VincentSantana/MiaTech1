@@ -16,7 +16,7 @@ btnStartTimer.addEventListener("click", () => {
         if (state.timer > 0) {
             state.timer--;
             render();
-            pastaReady();
+            
         } else {
             clearInterval(); // Ferma il timer quando arriva a 0
         }
@@ -25,7 +25,7 @@ btnStartTimer.addEventListener("click", () => {
 
     state.isPastaCooking = true
     render()
-    pastaReady()
+   
 });
 
 function pastaReady() {
@@ -42,4 +42,5 @@ function render() {
         timerDisplay.innerHTML = state.timer
     };
 
+    pastaReady()
 }
