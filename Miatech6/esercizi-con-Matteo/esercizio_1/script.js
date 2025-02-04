@@ -7,6 +7,8 @@ const state = {
     
 };
 
+
+
 const accessori = [
     {
         id: 1,
@@ -70,9 +72,18 @@ indietro.addEventListener("click", () =>{
     indietroBtn()
 })
 
+document.addEventListener("DOMContentLoaded", () => {
+    caricaCarrello();
+});
+
+
+
+
 function aggiungiAlCarrello(id) {//aqui se agregan los datos al state
     const accessoio = accessori.find((element) => element.id === id);
     state.carrello.push(accessoio);
+
+    salvaCarrello() // Salva i dati nel localStorage
     render();
 }
 
@@ -82,6 +93,8 @@ function rimuoviAlCarrello(item) {
     } else {
         item.quantity--;
     }
+
+    salvaCarrello()// Salva i dati nel localStorage
     render();
 }
 
@@ -92,8 +105,23 @@ function incrementa(id) {
         }
         return element;
     });
+
+    salvaCarrello() // Salva i dati nel localStorage
     render();
 }
+
+function salvaCarrello() {
+    localStorage.setItem("carrello", JSON.stringify(state.carrello));
+}
+
+function caricaCarrello() {
+    const carrelloSalvato = localStorage.getItem("carrello");
+    if (carrelloSalvato) {
+        state.carrello = JSON.parse(carrelloSalvato);
+        render();
+    }
+}
+
 
 function nascondiShop() {
     container.style.display = "none";//style inline
