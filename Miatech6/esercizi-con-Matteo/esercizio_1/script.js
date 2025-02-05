@@ -48,6 +48,7 @@ const accessori = [
     }
 ];
 
+//
 accessori.forEach((element) => {
     const div = document.createElement("div");
     div.innerHTML = `
@@ -72,13 +73,13 @@ indietro.addEventListener("click", () =>{
     indietroBtn()
 })
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {//deve prima caricare l'html
     caricaCarrello();
 });
 
 
 
-
+//actualizar el carrello e agrega informacion 
 function aggiungiAlCarrello(id) {//aqui se agregan los datos al state
     const accessoio = accessori.find((element) => element.id === id);
     state.carrello.push(accessoio);
@@ -163,5 +164,5 @@ const render = () => {// gestina los datos(me crea el modelo de los datos)
 
 
 
-//far in modo che quando aggiorno la pagina il carrelo non sparisca
+
 
