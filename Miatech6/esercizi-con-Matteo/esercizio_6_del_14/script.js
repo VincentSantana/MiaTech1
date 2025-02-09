@@ -22,23 +22,17 @@ async function retrievePokemons(url = "https://pokeapi.co/api/v2/pokemon") {
         state.nextPageUrl = resultJSON.next;//contiene le seguenti pagine
         state.prevPageUrl = resultJSON.previous;// parte null
 
-         // Calcular el total de páginas (la API tiene 1281 Pokémon en total)
-    state.totalPages = Math.ceil(1281 / 20); // 20 es el límite de Pokémon por página
+        // Calcular el total de páginas (la API tiene 1281 Pokémon en total)
+        state.totalPages = Math.ceil(1281 / 20); // 20 es el límite de Pokémon por página
 
         //mi cerca le imagini e poi renderizza la card
-        state.pokemonList.forEach(async (pokemon) => {
-            const url = pokemon.url;
-            const result = await fetch(url);
-            const pokemonObj = await result.json();
-            const pokemonImg = pokemonObj.sprites.front_default;
-            pokemon.imgUrl = pokemonImg;
-            render()
-            /*for (let pokemon of state.pokemonList) {
-      const pokemonData = await fetch(pokemon.url);
-      const pokemonObj = await pokemonData.json();
-      pokemon.imgUrl = pokemonObj.sprites.front_default;
-    }*/
-        });
+
+        for (let pokemon of state.pokemonList) {
+            const pokemonData = await fetch(pokemon.url);
+            const pokemonObj = await pokemonData.json();
+            pokemon.imgUrl = pokemonObj.sprites.front_default;
+        }
+
         render();
         renderPagination();
 
@@ -51,7 +45,7 @@ async function retrievePokemons(url = "https://pokeapi.co/api/v2/pokemon") {
 function render() {
     //pulisce l'html
     containerCard.innerHTML = "";
-// create card for each pokemon
+    // create card for each pokemon
     state.pokemonList.forEach((pokemon) => {
         const pokemonCard = createCard(pokemon.name, pokemon.imgUrl);
         // insert the card in the container
@@ -83,30 +77,30 @@ function createCard(pokemonName, pokemonImg) {
 // Generar botones de paginación
 function renderPagination() {
     paginationContainer.innerHTML = "";
-  
+
     for (let i = 1; i <= state.totalPages; i++) {
-      const button = document.createElement("button");
-      button.textContent = i;
-      button.classList.add("page-button");
-  
-      if (i === state.currentPage) {
-        button.classList.add("active");
-      }
-  
-      button.addEventListener("click", () => goToPage(i));
-  
-      paginationContainer.appendChild(button);
+        const button = document.createElement("button");
+        button.textContent = i;
+        button.classList.add("page-button");
+
+        if (i === state.currentPage) {
+            button.classList.add("active");
+        }
+
+        button.addEventListener("click", () => goToPage(i));
+
+        paginationContainer.appendChild(button);
     }
-  }
-  
-  // Ir a una página específica
+}
+
+// Ir a una página específica
 function goToPage(pageNumber) {
     state.currentPage = pageNumber;
     const offset = (pageNumber - 1) * 20; // 20 Pokémon por página
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`;
-  
+
     retrievePokemons(url);
-  }
+}
 
 // Manejo de los botones de paginación
 next.addEventListener("click", () => {
