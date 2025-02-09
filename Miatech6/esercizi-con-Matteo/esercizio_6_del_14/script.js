@@ -33,6 +33,11 @@ async function retrievePokemons(url = "https://pokeapi.co/api/v2/pokemon") {
             const pokemonImg = pokemonObj.sprites.front_default;
             pokemon.imgUrl = pokemonImg;
             render()
+            /*for (let pokemon of state.pokemonList) {
+      const pokemonData = await fetch(pokemon.url);
+      const pokemonObj = await pokemonData.json();
+      pokemon.imgUrl = pokemonObj.sprites.front_default;
+    }*/
         });
         render();
         renderPagination();
