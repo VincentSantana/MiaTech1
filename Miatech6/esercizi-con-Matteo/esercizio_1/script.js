@@ -4,7 +4,7 @@ const indietro = document.getElementById("indietro");
 
 const state = {
     carrello: [],
-    
+
 };
 
 
@@ -40,7 +40,7 @@ const accessori = [
         price: 70,
         quantity: 1,
     },
-    {   
+    {
         id: 6,
         name: "Vans",
         price: 30,
@@ -69,7 +69,7 @@ accessori.forEach((element) => {
     container.appendChild(div);
 });
 
-indietro.addEventListener("click", () =>{
+indietro.addEventListener("click", () => {
     indietroBtn()
 })
 
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {//deve prima caricare l'htm
 
 
 
-//actualizar el carrello e agrega informacion 
+//actualizar el carrello e agrega informacion addCart
 function aggiungiAlCarrello(id) {//aqui se agregan los datos al state
     const accessoio = accessori.find((element) => element.id === id);
     state.carrello.push(accessoio);
@@ -88,8 +88,9 @@ function aggiungiAlCarrello(id) {//aqui se agregan los datos al state
     render();
 }
 
+//removeCart
 function rimuoviAlCarrello(item) {
-    if (item.quantity -1 === 0) {//el +1 hace que me devuelva 0 y se cumpla la funcion
+    if (item.quantity - 1 === 0) {//el +1 hace que me devuelva 0 y se cumpla la funcion
         state.carrello = state.carrello.filter((element) => element.id !== item.id);
     } else {
         item.quantity--;
@@ -99,6 +100,7 @@ function rimuoviAlCarrello(item) {
     render();
 }
 
+//increment
 function incrementa(id) {
     state.carrello = state.carrello.map((element) => {
         if (element.id === id) {
@@ -111,10 +113,12 @@ function incrementa(id) {
     render();
 }
 
+//saveCart
 function salvaCarrello() {
     localStorage.setItem("carrello", JSON.stringify(state.carrello));
 }
 
+//dowloadCart
 function caricaCarrello() {
     const carrelloSalvato = localStorage.getItem("carrello");
     if (carrelloSalvato) {
@@ -123,15 +127,21 @@ function caricaCarrello() {
     }
 }
 
-
+//hidddenCart
 function nascondiShop() {
     container.style.display = "none";//style inline
     carrelloList.style.display = "flex";
 }
 
-function indietroBtn(){
+//funcion para el boton de regreso back
+function indietroBtn() {
     container.style.display = "grid";//style inline
     carrelloList.style.display = "none";
+}
+
+function buyBtn() {
+    container.style.display = "grid";//style inline
+
 }
 
 const render = () => {// gestina los datos(me crea el modelo de los datos)
@@ -140,14 +150,16 @@ const render = () => {// gestina los datos(me crea el modelo de los datos)
         const div = document.createElement("div");
         div.innerHTML = `
         <h2>${element.name} <span>${element.id}</span></h2>
-        <h3>price:  ${element.price*element.quantity}</h3>
-        <button class="remove">-</button>
+        <h3>price:  ${element.price * element.quantity}</h3>
+        <button onclick="() => console.log('pulsanteremove')"class="remove">-</button>
         <span class="quantity">${element.quantity}</span>
         <button class="add">+</button>
+        <button class="buy">buy</button>
         `;
-         div.classList.add("container-carrello");
+        div.classList.add("container-carrello");
         const btnRemove = div.querySelector(".remove");
         btnRemove.addEventListener("click", () => {
+            console.log("btnRemove")
             rimuoviAlCarrello(element);
         });
 
@@ -158,11 +170,20 @@ const render = () => {// gestina los datos(me crea el modelo de los datos)
         carrelloList.appendChild(div);
     });
 
+    //+= in questo caso mi aggiunge
+    carrelloList.innerHTML += `
+    <div id="spedizione">
+                <form action="">
+                    <label for="name">Name:</label>
+                    <input type="text">
+                </form>
+            </div>`
+
 
 };
 
 
+//crea funzione che quando faccio click su buy mi faccia vedere spedizione
 
-
-
+//when we are in the cart, create btn buy with the goods to buy en address to shipping the goods
 

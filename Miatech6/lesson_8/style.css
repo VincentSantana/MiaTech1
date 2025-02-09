@@ -19,14 +19,17 @@
 }
 
 .page-button {
-  padding: 5px 10px;
-  border: 1px solid black;
-  cursor: pointer;
+  padding: 8px 12px;
+    margin: 4px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
 }
 
 .page-button.active {
   background-color: #007bff;
   color: white;
+  font-weight: bold;
 }
 
 li {
