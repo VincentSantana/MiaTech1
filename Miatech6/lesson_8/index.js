@@ -19,7 +19,7 @@ const state = {
 // Funcion para obtener datos de la API
 async function fetchUsers() {
     try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+        const res = await fetch('https://jsonplaceholder.typicode.com/users');
         const dati = await res.json();
 
         state.users = dati; // Guardar datos en el estado
@@ -59,7 +59,7 @@ function render() {
     //aqui creo lo que se vera en la pantalla
     visibleUsers.forEach((item) => {
         const li = document.createElement("li");
-        li.innerHTML = `<p>${item.title}</p> <span>${item.completed}</span> <button class="delete-button" data-id="${item.id}">Delete</button>`;
+        li.innerHTML = `<p>${item.name}</p> <p>${item.username}</p> <span>${item.email}</span> <button class="delete-button" data-id="${item.id}">Delete</button>`;
         list.appendChild(li);
     });
 
