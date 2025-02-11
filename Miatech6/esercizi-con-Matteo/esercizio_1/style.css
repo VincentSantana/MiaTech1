@@ -1,5 +1,17 @@
+body{
+    height: 1850vh;
+}
+
 #box_container{
-    border: none;
+    display: inline-block; /* Para organizar los elementos */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si es necesario */
+    justify-content:start; /* Centra los elementos horizontalmente */
+    align-items: start; /* Centra los elementos verticalmente */
+    width: 80vw; /* Ancho completo */
+    height: 80vh; /* Alto completo */
+    padding: 5px; /* Espaciado para que no quede pegado a los bordes */
+    box-sizing: border-box; /* Asegura que padding no afecte el tamaño */
+    overflow-y: auto; /* Permite desplazamiento si hay muchos elementos */
 }
 
 #container{
@@ -74,7 +86,6 @@ button{
     justify-content: space-between;
     height: 80px;
     width: 400px;
-    background-color: #DCDCDC;
     border: none;
     padding: 10px 20px;
     font-weight: bold;
@@ -85,12 +96,12 @@ button{
     gap: 10px;
     font-size: 12px;
     margin-left: 150px;
+    display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
 }
 
 .hidden {
     display: none;
 }
 
-#spedizione{
-    display: none;
-}

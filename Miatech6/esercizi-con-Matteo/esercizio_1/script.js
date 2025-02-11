@@ -2,9 +2,10 @@ const container = document.getElementById("container");
 const carrelloList = document.getElementById("carrello");
 const indietro = document.getElementById("indietro");
 
+
 const state = {
     carrello: [],
-
+    mostrarSpedizione: false //  Nueva variable para controlar la visibilidad de la sección de envío
 };
 
 
@@ -48,18 +49,19 @@ const accessori = [
     }
 ];
 
-//
+// Renderizar productos en la tienda
 accessori.forEach((element) => {
     const div = document.createElement("div");
     div.innerHTML = `
     <h2>${element.name} <span>${element.id}</span></h2>
     <h3>price:  ${element.price}</h3>
-    <button>Aggiungi al carrello</button>
+     <button class="add-to-cart">Aggiungi al carrello</button>
     `;
 
     div.classList.add("container-accessori");
+    const btn = div.querySelector(".add-to-cart");
 
-    const btn = div.querySelector("button");
+
     btn.addEventListener("click", () => {
         aggiungiAlCarrello(element.id)
         nascondiShop()
@@ -69,12 +71,19 @@ accessori.forEach((element) => {
     container.appendChild(div);
 });
 
-indietro.addEventListener("click", () => {
-    indietroBtn()
-})
 
+// Evento para volver atrás
+if (indietro) {
+    indietro.addEventListener("click", indietroBtn);
+}
+
+// Cargar carrito desde localStorage al cargar la página
 document.addEventListener("DOMContentLoaded", () => {//deve prima caricare l'html
-    caricaCarrello();
+    if (container && carrelloList) {
+        caricaCarrello();
+    } else {
+        console.error("No se encontraron los elementos en el DOM");
+    }
 });
 
 
@@ -82,7 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {//deve prima caricare l'htm
 //actualizar el carrello e agrega informacion addCart
 function aggiungiAlCarrello(id) {//aqui se agregan los datos al state
     const accessoio = accessori.find((element) => element.id === id);
-    state.carrello.push(accessoio);
+    const itemInCarrello = state.carrello.find((item) => item.id === id);
+
+
+    if (itemInCarrello) { //verifico si el producto ya esta en el carrello
+        itemInCarrello.quantity++;  // Si ya está, incrementa la cantidad
+    } else {
+        state.carrello.push({ ...accessoio, quantity: 1 });// se agrega solo si no existe
+    }
 
     salvaCarrello() // Salva i dati nel localStorage
     render();
@@ -122,66 +138,124 @@ function salvaCarrello() {
 function caricaCarrello() {
     const carrelloSalvato = localStorage.getItem("carrello");
     if (carrelloSalvato) {
-        state.carrello = JSON.parse(carrelloSalvato);
+        state.carrello = JSON.parse(carrelloSalvato).map(item => ({
+            ...item, quantity: item.quantity || 1  // Asegurar que la cantidad exista
+        }));
         render();
     }
 }
 
 //hidddenCart
 function nascondiShop() {
-    container.style.display = "none";//style inline
-    carrelloList.style.display = "flex";
+    if (container && carrelloList) {
+        container.style.display = "none";//style inline
+        carrelloList.style.display = "flex";
+    }
 }
 
 //funcion para el boton de regreso back
 function indietroBtn() {
-    container.style.display = "grid";//style inline
-    carrelloList.style.display = "none";
+    if (container && carrelloList) {
+        container.style.display = "grid";//style inline
+        carrelloList.style.display = "none";
+    }
 }
 
-function buyBtn() {
-    container.style.display = "grid";//style inline
 
-}
 
-const render = () => {// gestina los datos(me crea el modelo de los datos)
+
+function render() {
     carrelloList.innerHTML = "";
+
+    // Renderizar productos en el carrito
     state.carrello.forEach((element) => {
         const div = document.createElement("div");
         div.innerHTML = `
-        <h2>${element.name} <span>${element.id}</span></h2>
-        <h3>price:  ${element.price * element.quantity}</h3>
-        <button onclick="() => console.log('pulsanteremove')"class="remove">-</button>
-        <span class="quantity">${element.quantity}</span>
-        <button class="add">+</button>
-        <button class="buy">buy</button>
+            <h2>${element.name} <span>${element.id}</span></h2>
+            <h3>Price: $${element.price * element.quantity}</h3>
+            <button class="remove">-</button>
+            <span class="quantity">${element.quantity}</span>
+            <button class="add">+</button>
+            <button class="buy">Buy</button>
         `;
+
         div.classList.add("container-carrello");
-        const btnRemove = div.querySelector(".remove");
-        btnRemove.addEventListener("click", () => {
-            console.log("btnRemove")
+        carrelloList.appendChild(div);
+
+        // Eventos para quitar del carrito
+        div.querySelector(".remove").addEventListener("click", () => {
             rimuoviAlCarrello(element);
         });
 
-        const btnAdd = div.querySelector(".add");
-        btnAdd.addEventListener("click", () => {
+        // Eventos para agregar al carrito
+        div.querySelector(".add").addEventListener("click", () => {
             incrementa(element.id);
         });
-        carrelloList.appendChild(div);
+
+        div.querySelector(".buy").addEventListener("click", () => {
+            console.log("buy")
+            mostrarSeccionEnvio();
+        });
+
     });
 
-    //+= in questo caso mi aggiunge
-    carrelloList.innerHTML += `
-    <div id="spedizione">
-                <form action="">
-                    <label for="name">Name:</label>
-                    <input type="text">
-                </form>
-            </div>`
+    //  Mostrar la sección de envío solo si "Buy" fue presionado
+    if (state.mostrarSpedizione) {
+        mostrarFormularioEnvio();
+    }
+}
 
+//  Función para mostrar el formulario de envío
+function mostrarSeccionEnvio() {
+    state.mostrarSpedizione = true; // Activar la sección de envío
+    render();
+}
 
-};
+function mostrarFormularioEnvio() {
+    if (!document.getElementById("spedizione")) {
+        const spedizioneDiv = document.createElement("div");
+        spedizioneDiv.id = "spedizione";
+        spedizioneDiv.innerHTML = `
+            <h2>Datos de Envío</h2>
+            <form id="form-spedizione">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+                
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" required>
 
+                <label for="phone">Teléfono:</label>
+                <input type="text" id="phone" required>
+
+                <button type="button" id="finalizar-compra">Finalizar Compra</button>
+            </form>
+        `;
+
+        carrelloList.appendChild(spedizioneDiv);
+
+        document.getElementById("finalizar-compra").addEventListener("click", finalizarCompra);
+    }
+}
+
+//  Función para finalizar la compra
+function finalizarCompra() {
+    const nombre = document.getElementById("name").value.trim();
+    const direccion = document.getElementById("address").value.trim();
+    const telefono = document.getElementById("phone").value.trim();
+
+    if (!nombre || !direccion || !telefono) {
+        alert(" Si prega di compilare tutti i campi di spedizione");
+        return;
+    }
+
+    alert(`Grazie per il tuo acquisto, ${nombre}!\n I tuoi prodotti verranno spediti a: ${direccion}.\n Ti contatteremo al ${telefono}.`);
+
+    // Vaciar el carrito después de la compra
+    state.carrello = [];
+    state.mostrarSpedizione = false; // Ocultar la sección de envío después de finalizar la compra
+    salvaCarrello();
+    render();
+}
 
 //crea funzione che quando faccio click su buy mi faccia vedere spedizione
 
