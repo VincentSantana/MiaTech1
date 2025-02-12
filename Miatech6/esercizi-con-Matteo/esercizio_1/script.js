@@ -170,15 +170,6 @@ const render = () => {// gestina los datos(me crea el modelo de los datos)
         carrelloList.appendChild(div);
     });
 
-    //+= in questo caso mi aggiunge
-    carrelloList.innerHTML += `
-    <div id="spedizione">
-                <form action="">
-                    <label for="name">Name:</label>
-                    <input type="text">
-                </form>
-            </div>`
-
 
 };
 
