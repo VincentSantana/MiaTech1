@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -8,19 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            theme: {
-                darkMode: 'class',
-                extend: {
-                    colors: {
-                       
-                    },
-                },
-            },
+            darkMode: 'class',
         }
     </script>
 
 </head>
-<body>
+<body class="bg-white dark:bg-gray-800">
     <div class="dark:bg-gray-800 dark:text-white p-4">
         <p>
             Configura Tailwind per supportare la modalità scura e crea una pagina HTML che cambi automaticamente lo stile
