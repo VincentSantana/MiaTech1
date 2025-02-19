@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 const LoginForm = () => {
@@ -27,14 +27,13 @@ const LoginForm = () => {
     }
 
     return (
-        <>
+        <> 
             <form onSubmit={handleSubmit}>
                 <input type="email" name="email" value={LoginForm.user} onInput={handleUser} />
                 <input type="password" name="password" value={LoginForm.passw} onInput={handlePass} />
                 <button type="submit" onClick={handleAlarm}>Login</button>
             </form>
         </>
-
     );
 };
 

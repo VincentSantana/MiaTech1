@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import  Calcolatrice  from "./Calcolatrice.jsx"
 
 const Title = () => {
   return (
@@ -44,7 +45,7 @@ const App = () => {
           Count: {counter}
         </p>
         
-
+        <Calcolatrice /> 
       </div>
     </div>
 
