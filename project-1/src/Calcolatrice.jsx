@@ -16,12 +16,13 @@ function handleSomma() {
         <>   
         <label htmlFor="somma_a">somma A:</label>
         <input type="number" value={sommaA} onChange={(e) => setSommaA(e.target.value)} /> 
+
         <label htmlFor="somma_b">somma B:</label>
-        <input type="text" value={sommaB} onChange={(e) => setSommaB(e.target.value)}/>
+        <input type="number" value={sommaB} onChange={(e) => setSommaB(e.target.value)}/>
+        
         <button onClick={handleSomma}>somma</button>
         <div>{somma}</div>
         </>
-
     )
 
 }
