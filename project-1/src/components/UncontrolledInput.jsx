@@ -9,9 +9,9 @@ const UncontrolledInput = () => {
     e.preventDefault();
     // Accedemos al valor actual del input usando la referencia
     const inputValue = inputRef.current.value;
-    alert("Valor ingresado:", inputValue);
+    alert(`Valor ingresado: ${inputValue}`);
 
-    // Opcionalmente, puedes limpiar el input
+    //limpia el input
     inputRef.current.value = "";
   };
 
