@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import TextInput from './TextInput.jsx'
-import LoginForm from './LoginForm.jsx'
-import UncontrolledInput from './UncontrolledInput.jsx'
+import App from './src/pages/App.jsx'
+import TextInput from './src/components/TextInput.jsx'
+import LoginForm from './src/pages/LoginForm.jsx'
+import UncontrolledInput from './src/components/UncontrolledInput.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render( <App />)
