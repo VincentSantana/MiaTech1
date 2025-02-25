@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Calcolatrice from "./Calcolatrice.jsx"
+import ItemList from "../components/ItemList.jsx";
 
 const Title = ({ title }) => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
       <Title title="Ciao World" />
       <Title title="Ciao Camilla" />
 
+    <ItemList/>
       <div>
         <div><h2>Valore del Count:{counter}</h2></div>
         <button onClick={handleClickBtn}>Aggiungi</button> <button onClick={handleClickBtnLess}>Ridurre</button> <button onClick={handleClickBtnZero}>Azzera</button>
