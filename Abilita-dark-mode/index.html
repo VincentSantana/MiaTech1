@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,13 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: 'media', //riesce ad individuare che modo sta usando l'usuario
         }
     </script>
 
 </head>
 <body class="bg-white dark:bg-gray-800">
-    <div class="dark:bg-gray-800 dark:text-white p-4">
+    <div class="p-4 dark:bg-gray-800 dark:text-white ">
         <p>
             Configura Tailwind per supportare la modalità scura e crea una pagina HTML che cambi automaticamente lo stile
             quando è attivata la modalità scura nel sistema operativo.
