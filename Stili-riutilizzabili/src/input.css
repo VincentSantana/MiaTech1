@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+    .btn {
+        padding: theme('padding.custom');
+        background-color: theme('colors.primary');
+    }
+
