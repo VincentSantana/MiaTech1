@@ -8,7 +8,7 @@ const Title = ({ title }) => {
   );
 }
 
-
+const items = ["penna", "matita", "cancelleto", "quaderno"]
 
 const App = () => {
   const [counter, setCounter] = useState(0);  //Una tipologia di hooks: State
@@ -43,7 +43,14 @@ const App = () => {
       <Title title="Ciao World" />
       <Title title="Ciao Camilla" />
 
-    <ItemList/>
+      <ul>
+        {
+          items.map((item) => (
+            <ItemList item={item}/>
+          ))
+        }
+      </ul>
+      
       <div>
         <div><h2>Valore del Count:{counter}</h2></div>
         <button onClick={handleClickBtn}>Aggiungi</button> <button onClick={handleClickBtnLess}>Ridurre</button> <button onClick={handleClickBtnZero}>Azzera</button>

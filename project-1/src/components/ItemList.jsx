@@ -1,23 +1,11 @@
 
 
-export default function ItemList() {
-    const items = ["penna", "matita", "cancelleto", "quaderno"]
+export default function ItemList({item}) {
 
 
     return (
-        <div>
-            puedo exportar una funcion??, si <br />
-            props??
-
-            <>
-            <ul>
-                {
-                    items.map((item) => (
-                        <li>{item}</li>
-                    ))
-                }
-            </ul>
-            </>
-        </div>
-    )
+        <>
+        <li>{item}</li>
+        
+        </>)
 }
