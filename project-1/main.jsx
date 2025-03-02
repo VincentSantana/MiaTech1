@@ -3,6 +3,7 @@ import App from './src/pages/App.jsx'
 import TextInput from './src/components/TextInput.jsx'
 import LoginForm from './src/pages/LoginForm.jsx'
 import UncontrolledInput from './src/components/UncontrolledInput.jsx'
+import "./index.css";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render( <App />)

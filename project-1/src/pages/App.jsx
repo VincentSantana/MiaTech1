@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Calcolatrice from "./Calcolatrice.jsx"
 import ItemList from "../components/ItemList.jsx";
+import Card from "../components/Card.jsx";
 
 const Title = ({ title }) => {
   return (
@@ -52,13 +53,21 @@ const App = () => {
       </ul>
       
       <div>
-        <div><h2>Valore del Count:{counter}</h2></div>
+      <Card>
+        <h2>Titolo della Card</h2>
+        <p>perche non si vede l'interno?.</p>
+      </Card>
+      </div>
+
+      <div>
+        <div className="bg-green-500 text-white p-4"><h2>Valore del Count:{counter}</h2></div>
         <button onClick={handleClickBtn}>Aggiungi</button> <button onClick={handleClickBtnLess}>Ridurre</button> <button onClick={handleClickBtnZero}>Azzera</button>
         <p>
           Count: {counter}
         </p>
 
         <Calcolatrice />
+
       </div>
     </div>
 
