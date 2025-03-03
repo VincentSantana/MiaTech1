@@ -3,6 +3,7 @@ import Calcolatrice from "./Calcolatrice.jsx"
 import ItemList from "../components/ItemList.jsx";
 import Card from "../components/Card.jsx";
 
+
 const Title = ({ title }) => {
   return (
     <h1 style={{ color: "red" }}>{title}</h1>
@@ -11,6 +12,7 @@ const Title = ({ title }) => {
 
 const items = ["penna", "matita", "cancelleto", "quaderno"]
 
+//USA rafce para crear funciones en automatico de un componente
 const App = () => {
   const [counter, setCounter] = useState(0);  //Una tipologia di hooks: State
 
