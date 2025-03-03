@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
-import App from './src/pages/App.jsx'
+import App from './src/pages/App/App.jsx'
 import TextInput from './src/components/TextInput.jsx'
-import LoginForm from './src/pages/LoginForm.jsx'
+import LoginForm from './src/pages/LoginForm/LoginForm.jsx'
 import UncontrolledInput from './src/components/UncontrolledInput.jsx'
 import "./index.css";
 

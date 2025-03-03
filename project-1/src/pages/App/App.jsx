@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Calcolatrice from "./Calcolatrice.jsx"
-import ItemList from "../components/ItemList.jsx";
-import Card from "../components/Card.jsx";
+import Calcolatrice from "../../components/Calcolatrice.jsx"
+import ItemList from "../../components/ItemList.jsx";
+import Card from "../../components/Card.jsx";
 
 
 const Title = ({ title }) => {
