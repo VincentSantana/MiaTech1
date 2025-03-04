@@ -2,5 +2,5 @@
 
 export default function Card({figlio}) {
 
-    return <div className="card p-4 shadow-lg rounded-lg bg-white">{figlio}</div>;
+    return <div className="card p-5 shadow-lg rounded-lg bg-blue-500">{figlio}</div>;
 };

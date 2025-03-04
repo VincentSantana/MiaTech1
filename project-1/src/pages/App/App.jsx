@@ -42,7 +42,7 @@ const App = () => {
   }, [counter]/* entra nelle dipendenze di useEffect*/);/*se le parentesi quadre[] non ci sono allora non ci saranno modifiche, se sono vuote allora non fa niente, se invece hanno un valore[counter] aggiorna o modifica ogni volta che facciamo click questo valore*/
 
   return (
-    <div>
+    <div className="m-5">
       <Title title="Ciao World" />
       <Title title="Ciao Camilla" />
 
@@ -61,7 +61,7 @@ const App = () => {
       </Card>
       </div>
 
-      <div>
+      <div className="m-5">
         <div className="bg-green-500 text-white p-4"><h2>Valore del Count:{counter}</h2></div>
         <button onClick={handleClickBtn}>Aggiungi</button> <button onClick={handleClickBtnLess}>Ridurre</button> <button onClick={handleClickBtnZero}>Azzera</button>
         <p>
