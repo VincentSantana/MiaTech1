@@ -16,7 +16,7 @@ export default function ItemList({item}) {
 
     function incrementR() {
        counterRef.current += 1
-       alert('You clicked ' + counterRef.current + ' times!');
+       alert('You clicked ' + counterRef.current + ' times!'); //Ref no non renderizza
     }
 
 
