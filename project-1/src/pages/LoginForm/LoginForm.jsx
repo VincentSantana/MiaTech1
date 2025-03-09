@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Pokemon from "../Pokemons/Pokemon";
 
 
 const LoginForm = () => {
@@ -33,6 +34,7 @@ const LoginForm = () => {
                 <input type="password" name="password" value={LoginForm.passw} onInput={handlePass} />
                 <button type="submit" onClick={handleAlarm}>Login</button>
             </form>
+            <Pokemon/>
         </>
     );
 };

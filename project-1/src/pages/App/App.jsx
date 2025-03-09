@@ -48,8 +48,8 @@ const App = () => {
 
       <ul>
         {
-          items.map((item) => (
-            <ItemList item={item}/>
+          items.map((item, index) => (
+            <ItemList key={index} item={item}/>
           ))
         }
       </ul>
@@ -69,7 +69,7 @@ const App = () => {
         </p>
 
         <Calcolatrice />
-
+        
       </div>
     </div>
 
