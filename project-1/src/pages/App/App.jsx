@@ -55,9 +55,9 @@ const App = () => {
       </ul>
       
       <div>
-      <Card>
+      <Card> 
         <h2>Titolo della Card</h2>
-        <p>perche non si vede l'interno?.</p>
+        <p>Ora si vede.</p>
       </Card>
       </div>
 

@@ -1,6 +1,8 @@
 
+//Childrenprops
+export default function Card({children}) { 
 
-export default function Card({figlio}) {
-
-    return <div className="card p-5 shadow-lg rounded-lg bg-blue-500">{figlio}</div>;
+    return <div className="card p-5 shadow-lg rounded-lg bg-blue-500">
+        {children}
+        </div>;
 };

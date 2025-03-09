@@ -28,5 +28,6 @@ export default function ItemList({item}) {
         <li>{item} <button onClick={incrementR}>x</button></li>
         <div>{counterRef.current}</div>
 
-        </>)
+        </>
+        )
 }
