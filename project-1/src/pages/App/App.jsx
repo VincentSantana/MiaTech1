@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Calcolatrice from "../../components/Calcolatrice.jsx"
 import ItemList from "../../components/ItemList.jsx";
 import Card from "../../components/Card.jsx";
+import TodoList from "../../components/TodoList/TodoList.jsx";
+
 
 
 const Title = ({ title }) => {
@@ -69,7 +71,7 @@ const App = () => {
         </p>
 
         <Calcolatrice />
-        
+        <TodoList />
       </div>
     </div>
 

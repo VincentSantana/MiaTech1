@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Pokemon from "../Pokemons/Pokemon";
+import TodoList from "../../components/TodoList/TodoList";
 
 
 const LoginForm = () => {
@@ -28,11 +29,12 @@ const LoginForm = () => {
     }
 
     return (
-        <> 
-            <form onSubmit={handleSubmit}>
-                <input type="email" name="email" value={LoginForm.user} onInput={handleUser} />
-                <input type="password" name="password" value={LoginForm.passw} onInput={handlePass} />
-                <button type="submit" onClick={handleAlarm}>Login</button>
+        <>
+
+            <form onSubmit={handleSubmit} className="m-4 p-4 border-1">
+                <input type="email" name="email" placeholder="inserisci la tua email" value={LoginForm.user} onInput={handleUser} />
+                <input type="password" name="password" placeholder="password..." value={LoginForm.passw} onInput={handlePass} />
+                <button className="flex border-1 p-2 rounded-xl" type="submit" onClick={handleAlarm}>Login</button>
             </form>
             <Pokemon/>
         </>
