@@ -2,28 +2,28 @@ import { useEffect, useState, useCallback } from "react";
 
 const DEFAULT_OPTIONS = {
     method: "GET",
-    headers: {},
-    data: {}
+    headers: {} //se deja vacio para que el usuario pueda agregar mas opciones si es necesario
 };
 
-export const useFetch = (url, options = DEFAULT_OPTIONS) => {
-    options = {
+//options son opciones adiconales por ejemplo(headers)
+//Si options no se pasa, tomara un objeto vacío {} como valor por defecto
+export const useFetch = (url, options = {}) => {
+    const finalOptions = {
         ...DEFAULT_OPTIONS,
         ...options,
-        headers: { ...DEFAULT_OPTIONS.headers, ...options.headers },
-        data: { ...DEFAULT_OPTIONS.data, ...options.data }
+        headers: { ...DEFAULT_OPTIONS.headers, ...options.headers }
     };
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(null);//datos recibidos
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);//carga
 
+    //useCallback evita que la funcion cambie en cada render y solo la vuelve a crear si url cambia
     const fetchTodos = useCallback(async () => {
-        setLoading(true);
-        setError(null);
-
+        setLoading(true); //Se activa el estado de carga
+        setError(null);//Se limpia cualquier error anterior
         try {
-            const res = await fetch(url, options);
+            const res = await fetch(url, finalOptions);
             if (!res.ok) throw new Error("Error during fetch data");
 
             const dati = await res.json();
@@ -32,13 +32,17 @@ export const useFetch = (url, options = DEFAULT_OPTIONS) => {
         } catch (error) {
             setError(error.message);
         } finally {
-            setLoading(false);
+            setLoading(false);//indica que la carga termino
         }
-    }, [url, options]);
+    }, [url]);
 
     useEffect(() => {
         fetchTodos();
-    }, []);
+    }, [fetchTodos]);
 
+    //data → Datos obtenidos de la API
+    //error → Mensaje de error (si ocurre)
+    //loading → true mientras se carga, false cuando termina
+    //fetchTodos → Función para volver a cargar los datos manualmente
     return { data, error, loading, fetchTodos };
 };
