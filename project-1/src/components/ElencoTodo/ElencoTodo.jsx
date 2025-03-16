@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 const ElencoTodo = () => {
     const { todos } = useTodos();
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");//per gestire il valore di ricerca(target.value)
+    const [searchParams, setSearchParams] = useSearchParams();//di react-router-dom viene usato per gestire i parametri della query string nell'URL.
+    const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");//per gestire il valore di ricerca(target.value) e la q rimane come valore predefinito se presente nell'url ad esempio: q=delectus se viene ricercata la parola delectus
 
     // Aggiorna i parametri della query quando cambia il searchTerm
     useEffect(() => {
