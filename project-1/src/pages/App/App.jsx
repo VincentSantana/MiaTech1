@@ -3,10 +3,12 @@ import Calcolatrice from "../../components/Calcolatrice.jsx"
 import ItemList from "../../components/ItemList.jsx";
 import Card from "../../components/Card.jsx";
 import TodoList, { useTodos } from "../../components/TodoList/TodoList.jsx";
-import {Route, Routes} from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Home from "../home/Home.jsx";
 import About from "../About/About.jsx";
 import Navbar from "../../components/Navbar/Navbar.jsx";
+import Layout from "../../components/Layout/Layout.jsx";
+import Pokemon from "../Pokemons/Pokemon.jsx";
 
 
 
@@ -21,7 +23,7 @@ const items = ["penna", "matita", "cancelleto", "quaderno"]
 //USA rafce para crear funciones en automatico de un componente
 const App = () => {
   const [counter, setCounter] = useState(0);  //Una tipologia di hooks: State
-  const {todos} = useTodos();//serve per usare il useContext 
+  const { todos } = useTodos();//serve per usare il useContext 
 
 
   const handleClickBtn = () => {  //funzione che aumenta il count
@@ -53,21 +55,24 @@ const App = () => {
       <Title title="Ciao World" />
 
       <div>
-     <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/pokemons" element={<Pokemon/>} />
+          </Route>
+        </Routes>
       </div>
 
       <ul>
         {
           items.map((item, index) => (
-            <ItemList key={index} item={item}/>
+            <ItemList key={index} item={item} />
           ))
         }
       </ul>
-        {/*esercizio dei useContext */}
+      {/*esercizio dei useContext */}
       <div className="m-5 hidden">
         {todos.map(todo => {
           return (
@@ -75,12 +80,12 @@ const App = () => {
           )
         })};
       </div>
-      
+
       <div>
-      <Card> 
-        <h2>Titolo della Card</h2>
-        <p>Ora si vede.</p>
-      </Card>
+        <Card>
+          <h2>Titolo della Card</h2>
+          <p>Ora si vede.</p>
+        </Card>
       </div>
 
       <div className="m-5">

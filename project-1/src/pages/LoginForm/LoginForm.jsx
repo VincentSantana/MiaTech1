@@ -36,7 +36,7 @@ const LoginForm = () => {
                 <input type="password" name="password" placeholder="password..." value={LoginForm.passw} onInput={handlePass} />
                 <button className="flex border-1 p-2 rounded-xl" type="submit" onClick={handleAlarm}>Login</button>
             </form>
-            <Pokemon/>
+           
         </>
     );
 };
