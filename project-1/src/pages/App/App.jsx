@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, } from "react";
 import Calcolatrice from "../../components/Calcolatrice.jsx"
 import ItemList from "../../components/ItemList.jsx";
 import Card from "../../components/Card.jsx";
-import TodoList from "../../components/TodoList/TodoList.jsx";
+import TodoList, { useTodos } from "../../components/TodoList/TodoList.jsx";
 
 
 
@@ -17,6 +17,7 @@ const items = ["penna", "matita", "cancelleto", "quaderno"]
 //USA rafce para crear funciones en automatico de un componente
 const App = () => {
   const [counter, setCounter] = useState(0);  //Una tipologia di hooks: State
+  const {todos} = useTodos();//serve per usare il useContext 
 
 
   const handleClickBtn = () => {  //funzione che aumenta il count
@@ -55,6 +56,14 @@ const App = () => {
           ))
         }
       </ul>
+        {/*esercizio dei useContext */}
+      <div className="m-5">
+        {todos.map(todo => {
+          return (
+            <div key={todo.id}>{todo.title}</div>
+          )
+        })};
+      </div>
       
       <div>
       <Card> 

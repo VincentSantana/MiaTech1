@@ -1,8 +1,42 @@
 import { useFetch } from "../Hooks/useFetch";
 import { useFilteredTodos } from "../Hooks/useFilteredTodos"; 
-import { useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const API_URL = "https://jsonplaceholder.typicode.com/todos"
+//esercizio dei useContext e provider
+const TodoContext = createContext();
+
+export const TodoProvider = ({ children }) => {
+    const [todos, setTodos] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchTodos = async () => {
+            try {
+                const res = await fetch(API_URL);
+                if (!res.ok) throw new Error("Error during fetch data");
+
+                const data = await res.json();
+                setTodos(data);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchTodos();
+    }, []);
+
+    return (
+        <TodoContext.Provider value={{ todos, loading, error }}>
+            {children}
+        </TodoContext.Provider>
+    );
+};
+
+export const useTodos = () => useContext(TodoContext) //fino qua uso del useContext
 
 export default function TodoList() {
     //mi permite usarlo en todos los componentes
