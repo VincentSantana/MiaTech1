@@ -10,6 +10,12 @@ const Navbar = () => {
       <Link to="/about">About</Link>
       </div>
       <div> 
+      <Link to="/todo/:id">Dettagli Todo</Link>
+      </div>
+      <div> 
+      <Link to="/Elenco">Elenco Todo</Link>
+      </div>
+      <div> 
       <Link to="/pokemons">Pokemons</Link>
       </div>
     </nav>

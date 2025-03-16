@@ -5,7 +5,7 @@ const About = () => {
   const navigate = useNavigate();
   //mi creo una funzione che usi il navigate
   const handleGoHome = () => {
-    navigate("/"); // Redirige a la página Home
+    navigate("/"); // mi ritorna alla Home
   };
 
   return (

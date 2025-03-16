@@ -9,6 +9,8 @@ import About from "../About/About.jsx";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import Layout from "../../components/Layout/Layout.jsx";
 import Pokemon from "../Pokemons/Pokemon.jsx";
+import TodoDetails from "../../components/TodoDetails.jsx/TodoDetails.jsx";
+import ElencoTodo from "../../components/ElencoTodo/ElencoTodo.jsx";
 
 
 
@@ -60,6 +62,8 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/todo/:id" element={<TodoDetails />} />
+            <Route path="/Elenco" element={<ElencoTodo />} />
             <Route path="/pokemons" element={<Pokemon/>} />
           </Route>
         </Routes>
