@@ -10,13 +10,14 @@ const {data: todos = [], error, loading, fetchTodos} = useFetch(API_URL, {method
 const [searchTerm, setSearchTerm] = useState("");
 const inputRef = useRef();
 
-useEffect(() => {
-    inputRef.current.focus();
-}, []);
 
 const filteredTodos = useFilteredTodos(todos, searchTerm);
 if (loading) return "sta caricando..."
 if (error) return "problema nella carica dei dati..."
+
+const handleFocusInput = () => {
+    inputRef.current.focus();
+}
     return (
         <>
         <input ref={inputRef} type="text" placeholder="cerca qui..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
