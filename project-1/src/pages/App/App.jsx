@@ -3,6 +3,10 @@ import Calcolatrice from "../../components/Calcolatrice.jsx"
 import ItemList from "../../components/ItemList.jsx";
 import Card from "../../components/Card.jsx";
 import TodoList, { useTodos } from "../../components/TodoList/TodoList.jsx";
+import {Route, Routes} from "react-router-dom"
+import Home from "../home/Home.jsx";
+import About from "../About/About.jsx";
+import Navbar from "../../components/Navbar/Navbar.jsx";
 
 
 
@@ -43,11 +47,18 @@ const App = () => {
     document.title = `Count: ${counter}`;
 
   }, [counter]/* entra nelle dipendenze di useEffect*/);/*se le parentesi quadre[] non ci sono allora non ci saranno modifiche, se sono vuote allora non fa niente, se invece hanno un valore[counter] aggiorna o modifica ogni volta che facciamo click questo valore*/
-
+  if (!todos) return <p>Cargando datos...</p>;
   return (
     <div className="m-5">
       <Title title="Ciao World" />
-      <Title title="Ciao Camilla" />
+
+      <div>
+     <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+      </div>
 
       <ul>
         {
@@ -57,7 +68,7 @@ const App = () => {
         }
       </ul>
         {/*esercizio dei useContext */}
-      <div className="m-5">
+      <div className="m-5 hidden">
         {todos.map(todo => {
           return (
             <div key={todo.id}>{todo.title}</div>

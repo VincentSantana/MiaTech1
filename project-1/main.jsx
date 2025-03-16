@@ -5,12 +5,15 @@ import LoginForm from './src/pages/LoginForm/LoginForm.jsx'
 import UncontrolledInput from './src/components/UncontrolledInput.jsx'
 import "./index.css";
 import { TodoProvider } from './src/components/TodoList/TodoList.jsx'
+import { BrowserRouter } from 'react-router-dom'
 
 
-ReactDOM.createRoot(document.getElementById('root')).render( 
-<TodoProvider> {/* devo usare il provider qui visto che renderizo il App */}
-<App />
-</TodoProvider>
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <BrowserRouter>
+        <TodoProvider> {/* devo usare il provider qui visto che renderizo il App */}
+            <App />
+        </TodoProvider>
+    </BrowserRouter>
 
 )
 ReactDOM.createRoot(document.getElementById('root1')).render(<TextInput />)
