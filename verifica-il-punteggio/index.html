@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica il Punteggio</title>
+</head>
+
+<body>
+    <h1>Risultato delle prove</h1>
+
+    <script type="text/javascript">
+
+        let score = prompt('Voto');
+        score = parseInt(score);
+
+
+        switch (true) {
+            case (score <= 100 && score >= 90):
+                console.log("voto ottimo")
+                break;
+            case (score >= 70 && score <= 89):
+                console.log("voto buono")
+                break
+            case (score >= 60 && score <= 69):
+                console.log("voto sufficiente")
+                break
+            default:
+                console.log("voto insufficiente")
+        }
+
+    </script>
+</body>
+
+</html>

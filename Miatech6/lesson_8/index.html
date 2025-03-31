@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="add_task_container">
+        <label for="information"><h1>Search:</h1></label>
+        <input id="task_text" type="text" placeholder="cerca..." />
+      </div>
+      <br>
+      <select id="sort-dropdown">
+        <option value="">Sort by...</option>
+        <option value="name">Name</option>
+        <option value="email">Email</option>
+      </select>
+
+      <div class="lista">
+          <div id="task_container" class="task_container"></div>
+          <div id="pagination-container"></div>
+        <button id="next" class="btn">Next</button>
+        <button id="previous" class="btn">Previous</button>
+      </div>
+  
+<script src="index.js"></script>
+</body>
+</html>

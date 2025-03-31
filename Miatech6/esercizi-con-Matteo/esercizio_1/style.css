@@ -1,0 +1,106 @@
+body{
+    height: 1850vh;
+}
+
+#box_container{
+    display: inline-block; /* Para organizar los elementos */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si es necesario */
+    justify-content:start; /* Centra los elementos horizontalmente */
+    align-items: start; /* Centra los elementos verticalmente */
+    width: 80vw; /* Ancho completo */
+    height: 80vh; /* Alto completo */
+    padding: 5px; /* Espaciado para que no quede pegado a los bordes */
+    box-sizing: border-box; /* Asegura que padding no afecte el tamaño */
+    overflow-y: auto; /* Permite desplazamiento si hay muchos elementos */
+}
+
+#container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+}
+
+div{
+    grid-template-columns: auto auto auto;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+}
+
+button{
+    padding: 5px 10px;
+    border: 1px solid #708090;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    font-size: 12px;
+    box-shadow: 3px 3px 3px 3px #708090;
+}
+
+.container-accessori{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+    width: 200px;
+    background-color: #DCDCDC;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    font-size: 12px;
+    box-shadow: 3px 3px 3px 3px #708090;
+}
+
+.container-carrello{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 400px;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    font-size: 12px;
+}
+
+#carrello{
+    display: none;
+    justify-content: space-between;
+    height: 80px;
+    width: 400px;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    font-size: 12px;
+    margin-left: 150px;
+    display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+
+.hidden {
+    display: none;
+}
+
