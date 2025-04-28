@@ -1,9 +1,9 @@
 import { useState, useEffect, } from "react";
-import Calcolatrice from "../../components/Calcolatrice.jsx"
+import Calcolatrice from "../../components/Calcolatrice.jsx";
 import ItemList from "../../components/ItemList.jsx";
 import Card from "../../components/Card.jsx";
-import TodoList, { useTodos } from "../../components/TodoList/TodoList.jsx";
-import { Route, Routes } from "react-router-dom"
+import TodoList from "../../components/TodoList/TodoList.jsx"; 
+import { Route, Routes } from "react-router-dom";
 import Home from "../home/Home.jsx";
 import About from "../About/About.jsx";
 import Navbar from "../../components/Navbar/Navbar.jsx";
@@ -11,8 +11,7 @@ import Layout from "../../components/Layout/Layout.jsx";
 import Pokemon from "../Pokemons/Pokemon.jsx";
 import TodoDetails from "../../components/TodoDetails.jsx/TodoDetails.jsx";
 import ElencoTodo from "../../components/ElencoTodo/ElencoTodo.jsx";
-
-
+import { useSelector } from "react-redux";
 
 const Title = ({ title }) => {
   return (
@@ -25,8 +24,8 @@ const items = ["penna", "matita", "cancelleto", "quaderno"]
 //USA rafce para crear funciones en automatico de un componente
 const App = () => {
   const [counter, setCounter] = useState(0);  //Una tipologia di hooks: State
-  const { todos } = useTodos();//serve per usare il useContext 
-
+  const todos = useSelector((state) => state.todos.items); // Accedi ai todos da Redux
+  const loadingTodos = useSelector((state) => state.todos.loading); // Accedi allo stato di caricamento dei todos
 
   const handleClickBtn = () => {  //funzione che aumenta il count
     setCounter((_counter) => {
@@ -51,7 +50,7 @@ const App = () => {
     document.title = `Count: ${counter}`;
 
   }, [counter]/* entra nelle dipendenze di useEffect*/);/*se le parentesi quadre[] non ci sono allora non ci saranno modifiche, se sono vuote allora non fa niente, se invece hanno un valore[counter] aggiorna o modifica ogni volta che facciamo click questo valore*/
-  if (!todos) return <p>Cargando datos...</p>;
+  if (loadingTodos) return <p>Cargando dati...</p>; // Usa lo stato di caricamento di Redux
   return (
     <div className="m-5">
       <Title title="Ciao World" />
@@ -98,13 +97,12 @@ const App = () => {
         <p>
           Count: {counter}
         </p>
-
         <Calcolatrice />
-        <TodoList />
+       <TodoList /> 
       </div>
     </div>
 
   );
 };
 
-export default App; 
+export default App;

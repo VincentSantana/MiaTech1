@@ -1,4 +1,66 @@
-import { useFetch } from "../Hooks/useFetch";
+import React, { useEffect, useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchTodos } from '../../store/slices/todosSlice';
+
+export default function TodoList() {
+  const todos = useSelector((state) => state.todos.items);
+  const loading = useSelector((state) => state.todos.loading);
+  const error = useSelector((state) => state.todos.error);
+  const dispatch = useDispatch();
+  const [searchTerm, setSearchTerm] = useState("");
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (todos.length === 0 && !loading && !error) {
+      dispatch(fetchTodos());
+    }
+  }, [dispatch, todos, loading, error]);
+
+  const handleFocusInput = () => {
+    inputRef.current.focus();
+  };
+
+  const filteredTodos = todos.filter(todo =>
+    todo.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  if (loading) return "sta caricando...";
+  if (error) return `problema nella carica dei dati: ${error}`;
+
+  console.log(loading);
+  console
+  return (
+    <>
+      <input
+        ref={inputRef}
+        type="text"
+        placeholder="cerca qui..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>userId</th>
+            <th>title</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredTodos.map((todo) => (
+            <tr key={todo.id}>
+              <td>{todo.id}</td>
+              <td>{todo.userId}</td>
+              <td>{todo.title}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+}
+
+/*import { useFetch } from "../Hooks/useFetch";
 import { useFilteredTodos } from "../Hooks/useFilteredTodos"; 
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -79,4 +141,4 @@ const handleFocusInput = () => {
         </>
 
     )
-}
+}*/

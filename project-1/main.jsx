@@ -1,21 +1,16 @@
-import ReactDOM from 'react-dom/client'
-import App from './src/pages/App/App.jsx'
-import TextInput from './src/components/TextInput.jsx'
-import LoginForm from './src/pages/LoginForm/LoginForm.jsx'
-import UncontrolledInput from './src/components/UncontrolledInput.jsx'
+import ReactDOM from 'react-dom/client';
+import App from './src/pages/App/App.jsx';
 import "./index.css";
-import { TodoProvider } from './src/components/TodoList/TodoList.jsx'
-import { BrowserRouter } from 'react-router-dom'
-
+import { BrowserRouter } from 'react-router-dom';
+import { Provider as ReduxProvider } from 'react-redux';
+import { store } from './src/store/index.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <ReduxProvider store={store}>
     <BrowserRouter>
-        <TodoProvider> {/* devo usare il provider qui visto che renderizo il App */}
-            <App />
-        </TodoProvider>
+      
+        <App />
+      
     </BrowserRouter>
-
-)
-ReactDOM.createRoot(document.getElementById('root1')).render(<TextInput />)
-ReactDOM.createRoot(document.getElementById('root2')).render(<LoginForm />)
-ReactDOM.createRoot(document.getElementById('root3')).render(<UncontrolledInput />)
+  </ReduxProvider>
+);
