@@ -4,10 +4,34 @@ const idname = document.querySelector(".idname");
 const idtext = document.querySelector(".idtext");
 const savebtn = document.querySelector(".savebtn");
 
-const dati = []; // Aquí se guardan los datos
+const dati = JSON.parse(localStorage.getItem("dati")) || []; // Aquí se guardan los datos
 let editingIndex = null; // para saber si estamos modificando
 
-savebtn.addEventListener("click", function(event) {
+
+//funcion para renderizar primero lo que ya esta guardado en el array
+
+function renderDati() {
+    date.innerHTML = "";
+
+    dati.forEach((dato, index) => {
+        const li = document.createElement("tr");
+        li.innerHTML = `
+            <td>${dato.date}</td>
+            <td>${dato.who}</td>
+            <td>${dato.todo}</td>
+            <td>
+                <button class="deletebtn">Delete</button>
+                <button class="modifybtn">Modify</button>
+            </td>
+        `;
+        date.appendChild(li);
+
+    });
+}
+
+renderDati();
+
+savebtn.addEventListener("click", function (event) {
     event.preventDefault();
 
     if (editingIndex !== null) {
@@ -31,6 +55,7 @@ savebtn.addEventListener("click", function(event) {
         `;
 
         editingIndex = null; // salimos del modo edición
+
     } else {
         // Crear objeto con los datos del formulario
         const nuovoDato = {
@@ -42,18 +67,11 @@ savebtn.addEventListener("click", function(event) {
         // Agregar al array
         dati.push(nuovoDato);
 
-        // Poblar el html con la lista
-        let li = document.createElement("tr");
-        li.innerHTML = `
-            <td>${nuovoDato.date}</td>
-            <td>${nuovoDato.who}</td>
-            <td>${nuovoDato.todo}</td>
-            <td>
-                <button class="deletebtn">Delete</button>
-                <button class="modifybtn">Modify</button>
-            </td>
-        `;
-        date.appendChild(li);
+        // Guardar en el localStorage
+        localStorage.setItem("dati", JSON.stringify(dati));
+
+        // Actualizar la lista
+        renderDati();
     }
 
     // Limpiar campos
@@ -64,15 +82,17 @@ savebtn.addEventListener("click", function(event) {
     console.log(dati);
 });
 
-// Delegación de eventos (delete y modify)
-date.addEventListener("click", function(event) {
+// creacion de eventos (delete y modify)
+date.addEventListener("click", function (event) {
     // BORRAR
     if (event.target.classList.contains("deletebtn")) {
         const fila = event.target.closest("tr");
         const index = Array.from(date.children).indexOf(fila);
 
-        fila.remove();
         dati.splice(index, 1);
+         localStorage.setItem("dati", JSON.stringify(dati));
+        renderDati();
+
 
         console.log(dati);
     }
@@ -91,3 +111,5 @@ date.addEventListener("click", function(event) {
         editingIndex = index;
     }
 });
+
+
