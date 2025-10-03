@@ -1,0 +1,42 @@
+.title {
+    text-align: center;
+}
+
+.form {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    max-width: 1020px;
+    gap: 5px;
+    display: flex;
+    margin-bottom: 20px;
+
+}
+
+.table {
+  margin: auto;
+  width: 100%;
+  max-width: 1020px;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-collapse: collapse;
+}
+
+.table td, .table th {
+  padding: 8px;
+  
+}
+
+.todolist tr {
+  
+  text-align: center;
+}
+
+thead {
+  background-color: grey;
+  border-collapse: collapse;
+  color: white;
+  
+}
+
+

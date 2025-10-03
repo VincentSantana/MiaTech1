@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
+    <link rel="stylesheet" href="list.css">
 </head>
 <body>
-    <h1>introduces your name and things</h1>
+    <h1 class="title">introduces your name and things</h1>
 
-    <form action="">
+    <form class="form">
         <label for="name"> Name: </label>
         <input class="idname" type="text">
         <label for="date"> Data tag: </label>
         <input class ="iddate" type="date">
         <label for="to do"> Write what do you thing here:</label>
-        <textarea name="name" class="idtext"></textarea> <br>
+        <textarea name="name" class="idtext" ></textarea> <br>
         <input type="submit" value="Save" class="savebtn">
     </form>
     
-    <table>
-       <tr>
-        <th>Date</th>
-        <th>Who</th>
-        <th>To do</th>
-       </tr> 
-       <tr class="todolist">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Who</th>
+                <th>To do</th>
+                <th></th>
+            </tr>
+        </thead>
+       <tbody class="todolist">
         
-       </tr>
+       </tbody>
     </table>
 
     <script src="list.js"></script>

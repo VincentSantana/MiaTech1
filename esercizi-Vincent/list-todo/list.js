@@ -4,8 +4,10 @@ const idname = document.querySelector(".idname");
 const idtext = document.querySelector(".idtext");
 const savebtn = document.querySelector(".savebtn");
 
+
 const dati = JSON.parse(localStorage.getItem("dati")) || []; // Aquí se guardan los datos
 let editingIndex = null; // para saber si estamos modificando
+
 
 
 //funcion para renderizar primero lo que ya esta guardado en el array
@@ -34,6 +36,11 @@ renderDati();
 savebtn.addEventListener("click", function (event) {
     event.preventDefault();
 
+    //si los campos estan vacios, no se hace nada
+    if(!iddate.value.trim() || !idname.value.trim() || !idtext.value.trim() ){ 
+        alert("es necesario completar los campos");
+        return; }
+
     if (editingIndex !== null) {
         // Estamos editando un dato existente
         dati[editingIndex] = {
@@ -53,6 +60,9 @@ savebtn.addEventListener("click", function (event) {
                 <button class="modifybtn">Modify</button>
             </td>
         `;
+
+        // Guardar en el localStorage
+        localStorage.setItem("dati", JSON.stringify(dati));
 
         editingIndex = null; // salimos del modo edición
 
