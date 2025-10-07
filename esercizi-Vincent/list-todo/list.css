@@ -13,6 +13,23 @@
 
 }
 
+.filter{
+  display: flex;
+  gap: 10px;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 20px;
+  
+}
+
+.sort {
+  list-style: none;
+}
+
+.sort.hidden {
+  display: none;
+}
+
 .table {
   margin: auto;
   width: 100%;

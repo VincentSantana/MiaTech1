@@ -3,6 +3,13 @@ const iddate = document.querySelector(".iddate");
 const idname = document.querySelector(".idname");
 const idtext = document.querySelector(".idtext");
 const savebtn = document.querySelector(".savebtn");
+const icon = document.querySelector(".icon");
+const sort = document.querySelector(".sort");
+//const filter = document.querySelector(".filter");
+const bydate = document.querySelector(".bydate");
+const byname = document.querySelector(".byname");
+const bytodo = document.querySelector(".bytodo");
+
 
 
 const dati = JSON.parse(localStorage.getItem("dati")) || []; // Aquí se guardan los datos
@@ -39,7 +46,7 @@ savebtn.addEventListener("click", function (event) {
     //si los campos estan vacios, no se hace nada
     if(!iddate.value.trim() || !idname.value.trim() || !idtext.value.trim() ){ 
         alert("es necesario completar los campos");
-        return; }
+        return; };
 
     if (editingIndex !== null) {
         // Estamos editando un dato existente
@@ -122,4 +129,17 @@ date.addEventListener("click", function (event) {
     }
 });
 
+icon.addEventListener("click", function(event) {
+    event.preventDefault();
+    sort.classList.toggle("hidden");
+    
+})
 
+//filter
+bydate.addEventListener("click", function(event) {
+    event.preventDefault();
+    dati.sort((a, b) => new Date(a.date) - new Date(b.date));
+    renderDati();
+})
+
+//search(find)

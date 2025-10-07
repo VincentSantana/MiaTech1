@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
     <link rel="stylesheet" href="list.css">
 </head>
+
 <body>
     <h1 class="title">introduces your name and things</h1>
 
@@ -13,12 +15,32 @@
         <label for="name"> Name: </label>
         <input class="idname" type="text">
         <label for="date"> Data tag: </label>
-        <input class ="iddate" type="date">
-        <label for="to do"> Write what do you thing here:</label>
-        <textarea name="name" class="idtext" ></textarea> <br>
+        <input class="iddate" type="date">
+        <label for="to do"> what do you thing?</label>
+        <textarea name="name" class="idtext" placeholder="Write here..."></textarea> <br>
         <input type="submit" value="Save" class="savebtn">
     </form>
-    
+    <br>
+    <div class="filter">
+        <div>
+            <label for="search">Search: <input type="text" class="search" placeholder="Search here..."></label>
+        </div>
+
+        <div>
+            <img class="icon" src="layers-svgrepo-com.svg" alt="icona" width="20" height="20">
+            <div class="sort">
+                <li class="bydate">sort by date</li>
+                <li class="byname">sort by name</li>
+                <li class="bytodo">sort by to do</li>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
     <table class="table">
         <thead>
             <tr>
@@ -28,11 +50,12 @@
                 <th></th>
             </tr>
         </thead>
-       <tbody class="todolist">
-        
-       </tbody>
+        <tbody class="todolist">
+
+        </tbody>
     </table>
 
     <script src="list.js"></script>
 </body>
+
 </html>
