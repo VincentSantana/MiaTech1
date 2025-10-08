@@ -45,12 +45,29 @@ input {
 }
 
 .sort {
-  list-style: none;
+  
   font-size: small;
 }
 
 .sort.hidden {
   display: none;
+}
+
+.sort li {
+  list-style: none;
+  padding: 6px 10px;
+  transition: background 0.2s ease;
+}
+
+.sort li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.bydate:hover,
+.byname:hover, 
+.bytodo:hover {
+  cursor: pointer;
 }
 
 .table {
@@ -82,4 +99,34 @@ thead {
 
 img{
   margin-top: 4px;
+}
+
+.savebtn{
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+  transition: background 0.2s ease;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+button{
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 5px;
+  color: grey;
+  font-weight: bold;
+  font-size: small;
+  transition: background 0.2s ease;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.idtext{
+  border-radius: 5px;
 }
