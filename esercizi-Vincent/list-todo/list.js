@@ -5,7 +5,7 @@ const idtext = document.querySelector(".idtext");
 const savebtn = document.querySelector(".savebtn");
 const icon = document.querySelector(".icon");
 const sort = document.querySelector(".sort");
-//const filter = document.querySelector(".filter");
+const search = document.querySelector(".search");
 const bydate = document.querySelector(".bydate");
 const byname = document.querySelector(".byname");
 const bytodo = document.querySelector(".bytodo");
@@ -18,11 +18,11 @@ let editingIndex = null; // para saber si estamos modificando
 
 
 //funcion para renderizar primero lo que ya esta guardado en el array
-
-function renderDati() {
+// si no se pasa ningun parametro, se usa el array original
+function renderDati(lista = dati) {
     date.innerHTML = "";
 
-    dati.forEach((dato, index) => {
+    lista.forEach((dato, index) => {
         const li = document.createElement("tr");
         li.innerHTML = `
             <td>${dato.date}</td>
@@ -135,11 +135,37 @@ icon.addEventListener("click", function(event) {
     
 })
 
-//filter
-bydate.addEventListener("click", function(event) {
+//sort funcion para ordenar los datos
+sort.addEventListener("click", function(event) {
     event.preventDefault();
+
+    if(event.target.classList.contains("bydate")) {
     dati.sort((a, b) => new Date(a.date) - new Date(b.date));
-    renderDati();
+    renderDati();    
+    }
+     if(event.target.classList.contains("byname")) {
+    dati.sort((a, b) => a.who.localeCompare(b.who));
+    renderDati();    
+    }
+     if(event.target.classList.contains("bytodo")) {
+    dati.sort((a, b) => a.todo.localeCompare(b.todo));
+    renderDati();    
+    }
 })
 
-//search(find)
+//search(filter)
+
+search.addEventListener("input", function(event) {
+    const searchValue = search.value.toLowerCase();
+
+    if (searchValue.trim() === "") {
+        renderDati(); //si no hay nada vuelve la lista original
+        return;
+    }
+
+    const filteredDati = dati.filter(dato =>
+    dato.who.toLowerCase().includes(searchValue) || 
+    dato.todo.toLowerCase().includes(searchValue));
+    
+    renderDati(filteredDati);
+})
